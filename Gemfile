@@ -32,6 +32,13 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+gem 'active_model_serializers' # For API purposes.
+gem 'kaminari' # Pagination
+gem 'geocoder' # Just a really useful gem, makes finding lat/lon information a breeze.
+gem 'figaro' # To hide sensitive information.
+gem 'omniauth' # For social media logins.
+gem 'foundation-rails' # Foundation CSS Framework
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
@@ -41,5 +48,19 @@ group :development, :test do
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
+
+  gem 'pry-rails' # so much better than the default IRB console
+  gem 'better_errors' # much better and informational than the default red error pages.
+  gem 'awesome_print' # makes data in console easier to read, especially JSON data.
+  gem 'annotate' # this will put the schema of the database on top of each model file so you never have to open the schema to check out field names.
+  gem 'rails-footnotes' # this will put useful information at the bottom of each view for development purposes only.
+  gem 'factory_girl' # used to set up Ruby objects to use as test data.
+  gem 'capybara' # user story / feature testing.
+  gem 'rspec-rails' # controller and model testing.
+
 end
 
+group :production do
+  gem 'thin'
+  gem 'rails_12factor'
+end
