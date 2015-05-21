@@ -24,7 +24,7 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 
 # Use ActiveModel has_secure_password
-# gem 'bcrypt', '~> 3.1.7'
+gem 'bcrypt', '~> 3.1.7'
 
 # Use Unicorn as the app server
 # gem 'unicorn'
@@ -37,6 +37,7 @@ gem 'kaminari' # Pagination
 gem 'geocoder' # Just a really useful gem, makes finding lat/lon information a breeze.
 gem 'figaro' # To hide sensitive information.
 gem 'omniauth' # For social media logins.
+gem 'omniauth-facebook' # Facebook OAuth
 gem 'foundation-rails' # Foundation CSS Framework
 
 group :development, :test do
@@ -61,6 +62,6 @@ group :development, :test do
 end
 
 group :production do
-  gem 'thin'
-  gem 'rails_12factor'
+  gem 'thin' #better than webrick web server
+  gem 'rails_12factor' #for heroku
 end
