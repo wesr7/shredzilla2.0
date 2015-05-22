@@ -1,13 +1,15 @@
 Rails.application.routes.draw do
-  get 'workouts/index'
 
-  get 'workouts/show'
+  get 'days' => 'days#index'
 
-  get 'workouts/new'
+  get 'days/new' => 'days#new', as: 'new_day'
 
-  get 'workouts/edit'
+  post 'days' => 'days#create'
+ resources :workouts
 
  resources :exercises
+
+
 
   root 'pages#index'
 
