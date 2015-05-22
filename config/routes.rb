@@ -1,16 +1,18 @@
 Rails.application.routes.draw do
-  get 'workouts/index'
+  root to: 'pages#index'
+  
+  get '/auth/:provider/callback', to: 'sessions#create'
+  
+  resources :users, :exercises, :workouts
 
-  get 'workouts/show'
+  # Routes for User Registration
+  get '/signup' => 'users#new'
+  # post '/users' => 'users#create'
 
-  get 'workouts/new'
-
-  get 'workouts/edit'
-
- resources :exercises
-
-  root 'pages#index'
-
+  # Routes for Sessions / Authentication
+  get '/login' => 'sessions#new'
+  post '/login' => 'sessions#create'
+  delete '/logout' => 'sessions#destroy'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
