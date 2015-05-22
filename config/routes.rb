@@ -1,5 +1,20 @@
 Rails.application.routes.draw do
-  root 'pages#index'
+  root to: 'pages#index'
+  
+  get '/auth/:provider/callback', to: 'sessions#create'
+  
+  resources :users
+
+  # Routes for User Registration
+  get '/signup' => 'users#new'
+  # post '/users' => 'users#create'
+
+  # Routes for Sessions / Authentication
+  get '/login' => 'sessions#new'
+  post '/login' => 'sessions#create'
+  delete '/logout' => 'sessions#destroy'
+
+
 
 
   # The priority is based upon order of creation: first created -> highest priority.
