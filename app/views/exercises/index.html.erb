@@ -1,0 +1,7 @@
+
+
+<% @exercises.each do |e| %>
+<p><%= link_to e.name, "#{e.video}" %></p>
+<% end %>
+
+<%= link_to 'Add exercise',  new_exercise_path %>

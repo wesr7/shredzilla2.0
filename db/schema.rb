@@ -16,6 +16,13 @@ ActiveRecord::Schema.define(version: 20150522044053) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "exercises", force: :cascade do |t|
+    t.string   "video"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string   "name"
+  end
+
   create_table "identities", force: :cascade do |t|
     t.integer  "user_id"
     t.string   "provider",   null: false
@@ -31,6 +38,22 @@ ActiveRecord::Schema.define(version: 20150522044053) do
   add_index "identities", ["uid"], name: "index_identities_on_uid", using: :btree
   add_index "identities", ["user_id"], name: "index_identities_on_user_id", using: :btree
 
+  create_table "programs", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "team_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "programs", ["team_id"], name: "index_programs_on_team_id", using: :btree
+
+  create_table "teams", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "owner_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "users", force: :cascade do |t|
     t.string   "first_name"
     t.string   "last_name"
@@ -44,5 +67,17 @@ ActiveRecord::Schema.define(version: 20150522044053) do
     t.datetime "updated_at",      null: false
   end
 
+  create_table "workouts", force: :cascade do |t|
+    t.string   "timer"
+    t.string   "hold"
+    t.string   "reps"
+    t.string   "sets"
+    t.integer  "exercise_id"
+    t.integer  "day_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
   add_foreign_key "identities", "users"
+  add_foreign_key "programs", "teams"
 end
