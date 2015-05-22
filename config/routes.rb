@@ -1,4 +1,14 @@
 Rails.application.routes.draw do
+  get 'workouts/index'
+
+  get 'workouts/show'
+
+  get 'workouts/new'
+
+  get 'workouts/edit'
+
+ resources :exercises
+
   root 'pages#index'
 
 
