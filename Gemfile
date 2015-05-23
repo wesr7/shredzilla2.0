@@ -41,6 +41,7 @@ gem 'omniauth-facebook' # Facebook OAuth
 gem 'omniauth-twitter' # Twitter OAuth
 gem 'omniauth-google-oauth2' # Google OAuth
 gem 'foundation-rails' # Foundation CSS Framework
+gem 'font-awesome-rails' # Font Awesome Library Gem
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
