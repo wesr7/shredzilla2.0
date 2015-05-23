@@ -11,24 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150523001837) do
+ActiveRecord::Schema.define(version: 20150523222607) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-
-  create_table "days", force: :cascade do |t|
-    t.integer  "number"
-    t.string   "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
 
   create_table "exercises", force: :cascade do |t|
     t.string   "video"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string   "name"
-    t.integer  "workout_id"
+    t.string   "hold"
+    t.string   "reps"
   end
 
   create_table "programs", force: :cascade do |t|
@@ -62,8 +56,6 @@ ActiveRecord::Schema.define(version: 20150523001837) do
 
   create_table "workouts", force: :cascade do |t|
     t.string   "timer"
-    t.string   "hold"
-    t.string   "reps"
     t.string   "sets"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
