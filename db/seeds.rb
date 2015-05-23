@@ -1,6 +1,4 @@
-
-
-Exercise.create([
+    Exercise.create([
     { name: "Hollow Sit", video: "http://www.youtube.com/watch?v=sYwm8VqAl2U", hold: "15 sec", reps: "1" },
     { name: "V-Up", video: "http://www.youtube.com/watch?v=oFtdpmN7kJ4", hold: "X", reps: "10" },
     { name: "V-Up", video: "http://www.youtube.com/watch?v=oFtdpmN7kJ4", hold: "1 sec", reps: "10" },
@@ -112,3 +110,10 @@ Exercise.create([
     { name: "Box Blast", video: "http://youtu.be/AaGfyHYB7y8", hold: "X", reps: "10 R/L" },
     { name: "High Knee Skip - In Place",video: "http://youtu.be/EEGrjye9eag", hold: "X", reps: "20 R/L" }
 ])
+
+Workout.create({
+    day: "Day 1",
+    sets: "4",
+    timer: ":30 Rest Between Sets"
+    }).exercises = Exercise.find([54, 55, 36, 37, 21, 26, 76])
+
