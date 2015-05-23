@@ -2,8 +2,8 @@ class WorkoutsController < ApplicationController
 
   def index
     @workouts = Workout.all
-    @exercise_id = Exercise.find(params[:id])
-    @day = Day.find(params[:id])
+  
+
   end
 
   def new
