@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-
+ruby '2.2.2'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.1'
@@ -38,7 +38,10 @@ gem 'geocoder' # Just a really useful gem, makes finding lat/lon information a b
 gem 'figaro' # To hide sensitive information.
 gem 'omniauth' # For social media logins.
 gem 'omniauth-facebook' # Facebook OAuth
+gem 'omniauth-twitter' # Twitter OAuth
+gem 'omniauth-google-oauth2' # Google OAuth
 gem 'foundation-rails' # Foundation CSS Framework
+gem 'font-awesome-rails' # Font Awesome Library Gem
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -58,7 +61,6 @@ group :development, :test do
   gem 'factory_girl' # used to set up Ruby objects to use as test data.
   gem 'capybara' # user story / feature testing.
   gem 'rspec-rails' # controller and model testing.
-
 end
 
 group :production do

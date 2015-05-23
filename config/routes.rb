@@ -3,7 +3,11 @@ Rails.application.routes.draw do
   
   get '/auth/:provider/callback', to: 'sessions#create'
   
+<<<<<<< HEAD
   resources :users,   :exercises, :workouts
+=======
+  resources :users, :exercises, :workouts
+>>>>>>> 1444da4eeb224b3a3802f99ac151f8601e7f5d63
 
   # Routes for User Registration
   get '/signup' => 'users#new'

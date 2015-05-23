@@ -1,2 +1,15 @@
-<h1>Pages#index</h1>
-<p>Find me in app/views/pages/index.html.erb</p>
+<div class="container">
+  
+</div>
+<h1>Pages # Index</h1>
+
+      <ul>
+        <li><%= link_to 'Google+', '/auth/google' %></li>
+        <li><%= link_to 'Facebook', '/auth/facebook' %></li>
+        <li><%= link_to 'Twitter', '/auth/twitter' %></li>
+      </ul>
+
+
+      <%= current_user.first_name if current_user %>
+
+      <%= link_to 'Logout', '/logout', method: :delete %>
