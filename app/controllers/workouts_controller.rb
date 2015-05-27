@@ -18,16 +18,25 @@ class WorkoutsController < ApplicationController
   end
 
   def edit
-    @workout = Workout.find(parmas[:id])
-    if @workout.save
+    @workout = Workout.find(params[:id])
+    # if @workout.save
+    #     redirect_to workout_path(@workout)
+    # else
+    #     render 'new'
+    # end
+  end
+
+  def update
+    @workout = Workout.find(params[:id])
+    if @workout.update(workout_params)
         redirect_to workout_path(@workout)
-    else
+      else
         render 'new'
-    end
+      end
   end
 
   def show
-    @workouts = Workout.find(params[:id])
+    @workout = Workout.find(params[:id])
   end
 
   private
