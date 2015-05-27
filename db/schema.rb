@@ -11,10 +11,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20150527220635) do
+=======
+ActiveRecord::Schema.define(version: 20150527221333) do
+>>>>>>> 1bc7ee0365e21f18309384594b7435ecea0803cf
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "challenges", force: :cascade do |t|
+    t.string   "name"
+    t.date     "start_date"
+    t.integer  "current_day"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  create_table "challenges_programs", id: false, force: :cascade do |t|
+    t.integer "challenge_id", null: false
+    t.integer "program_id",   null: false
+  end
 
   create_table "days", force: :cascade do |t|
     t.integer  "day"
@@ -78,6 +95,11 @@ ActiveRecord::Schema.define(version: 20150527220635) do
     t.integer  "owner_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "teams_users", id: false, force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.integer "team_id", null: false
   end
 
   create_table "users", force: :cascade do |t|

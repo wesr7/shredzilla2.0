@@ -1,3 +1,3 @@
 class Program < ActiveRecord::Base
-  belongs_to :team
+  has_many :teams
 end
