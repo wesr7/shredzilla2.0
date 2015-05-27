@@ -2,8 +2,6 @@ class WorkoutsController < ApplicationController
 
   def index
     @workouts = Workout.all
-  
-
   end
 
   def new
@@ -11,7 +9,7 @@ class WorkoutsController < ApplicationController
   end
 
   def create
-    @workout = Workout.new(workouts_params)
+    @workout = Workout.new(workout_params)
     if @workout.save
         redirect_to workouts_path
     else
@@ -29,7 +27,12 @@ class WorkoutsController < ApplicationController
   end
 
   def show
-    @workout = Workout.find(parmas[:id])
+    @workouts = Workout.find(params[:id])
+  end
+
+  private
+  def workout_params
+    params.require(:workout).permit(:day_id, :exercise_id, :hold, :reps, :sets, :timer)
   end
 
 end

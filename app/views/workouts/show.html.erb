@@ -1,0 +1,44 @@
+
+<div class="jumbotron">
+  <div class="container text-center text-uppercase">
+    <h1>Shredzilla Day:</h1>
+  </div>
+</div>
+
+<div class="container">
+<table class="table table-bordered">
+<tr>
+    <td><strong>Sets</strong></td>
+    <td><strong>Timer</strong></td>
+    <td><strong>Exercise</strong></td>
+    <td><strong>Hold</strong></td>
+    <td><strong>Reps</strong></td>
+</tr>
+<tr>
+  <% @workouts.each do |w| %>
+    <td><%= w.hold %> </td>
+    <td><%= w.reps %></td>
+    <td><%= w.sets %></td>
+    <td><%= w.timer %></td>
+    <% end %>
+</tr>
+<tr>
+
+</tr>
+
+
+</table>
+
+
+
+  <p><%= link_to "Check out more HIIT'S", workouts_path %></p>
+
+  </div>
+
+
+
+
+
+<%= params %>
+
+

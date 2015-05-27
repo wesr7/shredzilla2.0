@@ -1,0 +1,8 @@
+
+<% @workouts.each do |w| %>
+<h3>Day:<%= w.day_id %></h3>
+<p><%= link_to 'Go to Workout', workout_path(w) %></p>
+<% end %>
+
+
+<p><%= link_to 'Add workout',  new_workout_path %></p>

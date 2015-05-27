@@ -1,0 +1,43 @@
+<div class="container">
+<div class="jumbotron">
+  <div class="container text-center text-uppercase">
+    <h1>Shredzilla Day: <%= @day.day %></h1>
+  </div>
+</div>
+
+<div class="container">
+<table class="table table-bordered">
+<tr>
+    <td><strong>Exercise</strong></td>
+    <td><strong>Hold</strong></td>
+    <td><strong>Reps</strong></td>
+    <td><strong>Sets</strong></td>
+    <td><strong>Timer</strong></td>
+</tr>
+
+
+<tr>
+<% @day.workouts.each do |d| %>
+    <td><%= link_to d.exercise.name, "#{d.exercise.video}" %></td>
+    <td><%= d.hold %> </td>
+    <td><%= d.reps %></td>
+    <td><%= d.sets %></td>
+    <td><%= d.timer %></td>
+
+</tr>
+<% end %>
+
+</table>
+
+
+
+  <p><%= link_to "Check out more HIIT'S", workouts_path %></p>
+
+  </div>
+
+
+</div>
+
+
+
+

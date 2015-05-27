@@ -1,0 +1,6 @@
+<div class="container">
+    <% @days.each do |day| %>
+    <p><%= day.day %></p>
+    <p><%= link_to 'Check out your workout', day_path(day) %></p>
+    <% end %>
+</div>

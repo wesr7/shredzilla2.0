@@ -1,0 +1,19 @@
+<div class="container">
+    <div class="container">
+<%= form_for @workout do |w| %>
+    <p><strong><%= w.label :day_id %> </strong></p>
+     <p><%= w.collection_select(:day_id, Day.all, :id, :day) %></p>
+    <p><strong><%= w.label :exercise %></strong></p>
+    <p><%= w.collection_select(:exercise_id, Exercise.all, :id, :name) %></p>
+     <p><strong><%= w.label :hold %></strong></p>
+    <p><%= w.text_field :hold %></p>
+    <p><strong><%= w.label :reps %></strong></p>
+    <p><%= w.text_field :reps %></p>
+    <p><strong><%= w.label :sets %></strong></p>
+    <p><%= w.text_field :sets %></p>
+     <p><strong><%= w.label :timer %></strong></p>
+    <p><%= w.text_field :timer %></p>
+    <%= w.submit 'Add Exercise' %>
+<% end %>
+    </div>
+</div>
