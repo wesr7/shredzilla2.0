@@ -11,22 +11,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150523230127) do
+ActiveRecord::Schema.define(version: 20150527012936) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "days", force: :cascade do |t|
+    t.integer  "day"
+    t.string   "description"
+    t.string   "option_1"
+    t.string   "option_2"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
   create_table "exercises", force: :cascade do |t|
+    t.string   "name"
     t.string   "video"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string   "name"
-    t.string   "hold"
-    t.string   "reps"
-    t.integer  "workout_id"
   end
-
-  add_index "exercises", ["workout_id"], name: "index_exercises_on_workout_id", using: :btree
 
   create_table "identities", force: :cascade do |t|
     t.integer  "user_id"
@@ -73,15 +77,21 @@ ActiveRecord::Schema.define(version: 20150523230127) do
   end
 
   create_table "workouts", force: :cascade do |t|
-    t.string   "timer"
+    t.integer  "day_id"
+    t.integer  "exercise_id"
+    t.string   "hold"
+    t.string   "reps"
     t.string   "sets"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.integer  "day"
-    t.string   "day_name"
+    t.string   "timer"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
-  add_foreign_key "exercises", "workouts"
+  add_index "workouts", ["day_id"], name: "index_workouts_on_day_id", using: :btree
+  add_index "workouts", ["exercise_id"], name: "index_workouts_on_exercise_id", using: :btree
+
   add_foreign_key "identities", "users"
   add_foreign_key "programs", "teams"
+  add_foreign_key "workouts", "days"
+  add_foreign_key "workouts", "exercises"
 end

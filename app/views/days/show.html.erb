@@ -1,31 +1,31 @@
-
+<div class="container">
 <div class="jumbotron">
   <div class="container text-center text-uppercase">
-    <h1>Shredzilla Day:</h1>
+    <h1>Shredzilla Day: <%= @day.day %></h1>
   </div>
 </div>
 
 <div class="container">
 <table class="table table-bordered">
 <tr>
-    <td><strong>Sets</strong></td>
-    <td><strong>Timer</strong></td>
     <td><strong>Exercise</strong></td>
     <td><strong>Hold</strong></td>
     <td><strong>Reps</strong></td>
-</tr>
-<tr>
-  <% @workouts.each do |w| %>
-    <td><%= w.hold %> </td>
-    <td><%= w.reps %></td>
-    <td><%= w.sets %></td>
-    <td><%= w.timer %></td>
-    <% end %>
-</tr>
-<tr>
-
+    <td><strong>Sets</strong></td>
+    <td><strong>Timer</strong></td>
 </tr>
 
+
+<tr>
+<% @day.workouts.each do |d| %>
+    <td><%= link_to d.exercise.name, "#{d.exercise.video}" %></td>
+    <td><%= d.hold %> </td>
+    <td><%= d.reps %></td>
+    <td><%= d.sets %></td>
+    <td><%= d.timer %></td>
+
+</tr>
+<% end %>
 
 </table>
 
@@ -36,9 +36,8 @@
   </div>
 
 
+</div>
 
 
-
-<%= params %>
 
 
