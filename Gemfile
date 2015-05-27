@@ -25,7 +25,6 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
-gem 'seed_dump'
 # Use Unicorn as the app server
 # gem 'unicorn'
 
@@ -42,6 +41,8 @@ gem 'omniauth-twitter' # Twitter OAuth
 gem 'omniauth-google-oauth2' # Google OAuth
 gem 'foundation-rails' # Foundation CSS Framework
 gem 'font-awesome-rails' # Font Awesome Library Gem
+gem 'sidekiq' # Background processing for Ruby.
+gem 'simple_form'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -61,6 +62,7 @@ group :development, :test do
   gem 'factory_girl' # used to set up Ruby objects to use as test data.
   gem 'capybara' # user story / feature testing.
   gem 'rspec-rails' # controller and model testing.
+  gem 'seed_dump'
 end
 
 group :production do
