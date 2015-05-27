@@ -1,11 +1,17 @@
 Rails.application.routes.draw do
 
-
   root to: 'pages#index'
 
+  # Omniauth Callbacks
   get '/auth/:provider/callback', to: 'sessions#create'
 
-  resources :users, :exercises, :workouts, :days
+  resources :users, :exercises, :challenges do
+    resources :programs do
+      resources :days do
+        resources :workouts
+      end
+    end
+  end
 
   # Routes for User Registration
   get '/signup' => 'users#new'
