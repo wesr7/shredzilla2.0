@@ -11,7 +11,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
+ActiveRecord::Schema.define(version: 20150527220635) do
+=======
 ActiveRecord::Schema.define(version: 20150527221333) do
+>>>>>>> 1bc7ee0365e21f18309384594b7435ecea0803cf
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -69,6 +73,23 @@ ActiveRecord::Schema.define(version: 20150527221333) do
 
   add_index "programs", ["team_id"], name: "index_programs_on_team_id", using: :btree
 
+  create_table "scores", force: :cascade do |t|
+    t.integer  "team_id"
+    t.integer  "day_id"
+    t.integer  "user_id"
+    t.integer  "food"
+    t.integer  "workout"
+    t.integer  "sleep"
+    t.integer  "challenge"
+    t.integer  "update"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "scores", ["day_id"], name: "index_scores_on_day_id", using: :btree
+  add_index "scores", ["team_id"], name: "index_scores_on_team_id", using: :btree
+  add_index "scores", ["user_id"], name: "index_scores_on_user_id", using: :btree
+
   create_table "teams", force: :cascade do |t|
     t.string   "name"
     t.integer  "owner_id"
@@ -110,6 +131,9 @@ ActiveRecord::Schema.define(version: 20150527221333) do
 
   add_foreign_key "identities", "users"
   add_foreign_key "programs", "teams"
+  add_foreign_key "scores", "days"
+  add_foreign_key "scores", "teams"
+  add_foreign_key "scores", "users"
   add_foreign_key "workouts", "days"
   add_foreign_key "workouts", "exercises"
 end
