@@ -1,15 +1,18 @@
 <div class="container">
   
 </div>
-<h1>Pages # Index</h1>
+<h1>Root Page</h1>
 
+      <% if !current_user %>
       <ul>
+        <li>Log In with:</li>
         <li><%= link_to 'Google+', '/auth/google' %></li>
         <li><%= link_to 'Facebook', '/auth/facebook' %></li>
         <li><%= link_to 'Twitter', '/auth/twitter' %></li>
       </ul>
+      <% end %>
 
+      Welcome <%= current_user.first_name if current_user %>!
 
-      <%= current_user.first_name if current_user %>
-
-      <%= link_to 'Logout', '/logout', method: :delete %>
+      <%= link_to 'Login', '/login' if !current_user %>
+      <%= link_to 'Logout', '/logout', method: :delete if current_user%>
