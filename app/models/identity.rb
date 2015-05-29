@@ -1,3 +1,17 @@
+# == Schema Information
+#
+# Table name: identities
+#
+#  id         :integer          not null, primary key
+#  user_id    :integer
+#  provider   :string           not null
+#  uid        :string           not null
+#  token      :string
+#  secret     :string
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#
+
 class Identity < ActiveRecord::Base
 
   TEMP_EMAIL_PREFIX = 'change@me'

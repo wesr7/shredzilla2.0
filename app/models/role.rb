@@ -1,15 +1,14 @@
 # == Schema Information
 #
-# Table name: teams
+# Table name: roles
 #
 #  id         :integer          not null, primary key
-#  name       :string
-#  owner_id   :integer
+#  user_id    :integer
+#  role       :string
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #
 
-class Team < ActiveRecord::Base
-  belongs_to :program
-  has_many :users, through: :memberships
+class Role < ActiveRecord::Base
+  belongs_to :user
 end

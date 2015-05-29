@@ -1,5 +1,4 @@
 class Score < ActiveRecord::Base
-  belongs_to :team
-  belongs_to :day
+  belongs_to :history
   belongs_to :user
 end

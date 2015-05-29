@@ -42,7 +42,7 @@ gem 'omniauth-google-oauth2' # Google OAuth
 gem 'foundation-rails' # Foundation CSS Framework
 gem 'font-awesome-rails' # Font Awesome Library Gem
 gem 'sidekiq' # Background processing for Ruby.
-gem 'simple_form'
+gem 'simple_form' # Better form helpers.
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -62,6 +62,7 @@ group :development, :test do
   gem 'factory_girl' # used to set up Ruby objects to use as test data.
   gem 'capybara' # user story / feature testing.
   gem 'rspec-rails' # controller and model testing.
+  gem 'pundit' # using pundit gem for user authorization, using roles table.
   gem 'seed_dump'
 end
 
