@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150527220635) do
+ActiveRecord::Schema.define(version: 20150529225335) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -30,6 +30,7 @@ ActiveRecord::Schema.define(version: 20150527220635) do
   end
 
   create_table "days", force: :cascade do |t|
+    t.integer  "program_id"
     t.integer  "day"
     t.string   "description"
     t.string   "option_1"
@@ -38,12 +39,24 @@ ActiveRecord::Schema.define(version: 20150527220635) do
     t.datetime "updated_at",  null: false
   end
 
+  add_index "days", ["program_id"], name: "index_days_on_program_id", using: :btree
+
   create_table "exercises", force: :cascade do |t|
     t.string   "name"
     t.string   "video"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
+  create_table "histories", force: :cascade do |t|
+    t.integer  "challenge_id"
+    t.integer  "program_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
+
+  add_index "histories", ["challenge_id"], name: "index_histories_on_challenge_id", using: :btree
+  add_index "histories", ["program_id"], name: "index_histories_on_program_id", using: :btree
 
   create_table "identities", force: :cascade do |t|
     t.integer  "user_id"
@@ -60,43 +73,58 @@ ActiveRecord::Schema.define(version: 20150527220635) do
   add_index "identities", ["uid"], name: "index_identities_on_uid", using: :btree
   add_index "identities", ["user_id"], name: "index_identities_on_user_id", using: :btree
 
-  create_table "programs", force: :cascade do |t|
-    t.string   "name"
+  create_table "memberships", force: :cascade do |t|
+    t.integer  "user_id"
     t.integer  "team_id"
+    t.boolean  "owner"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  add_index "programs", ["team_id"], name: "index_programs_on_team_id", using: :btree
+  add_index "memberships", ["team_id"], name: "index_memberships_on_team_id", using: :btree
+  add_index "memberships", ["user_id"], name: "index_memberships_on_user_id", using: :btree
+
+  create_table "programs", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "roles", force: :cascade do |t|
+    t.integer  "user_id"
+    t.string   "role"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "roles", ["user_id"], name: "index_roles_on_user_id", using: :btree
 
   create_table "scores", force: :cascade do |t|
-    t.integer  "team_id"
-    t.integer  "day_id"
+    t.integer  "history_id"
     t.integer  "user_id"
+    t.integer  "day"
     t.integer  "food"
     t.integer  "workout"
     t.integer  "sleep"
     t.integer  "challenge"
-    t.integer  "update"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.integer  "daily_update"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
   end
 
-  add_index "scores", ["day_id"], name: "index_scores_on_day_id", using: :btree
-  add_index "scores", ["team_id"], name: "index_scores_on_team_id", using: :btree
+  add_index "scores", ["history_id"], name: "index_scores_on_history_id", using: :btree
   add_index "scores", ["user_id"], name: "index_scores_on_user_id", using: :btree
 
   create_table "teams", force: :cascade do |t|
+    t.integer  "challenge_id"
+    t.integer  "program_id"
     t.string   "name"
-    t.integer  "owner_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
   end
 
-  create_table "teams_users", id: false, force: :cascade do |t|
-    t.integer "user_id", null: false
-    t.integer "team_id", null: false
-  end
+  add_index "teams", ["challenge_id"], name: "index_teams_on_challenge_id", using: :btree
+  add_index "teams", ["program_id"], name: "index_teams_on_program_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "first_name"
@@ -125,11 +153,17 @@ ActiveRecord::Schema.define(version: 20150527220635) do
   add_index "workouts", ["day_id"], name: "index_workouts_on_day_id", using: :btree
   add_index "workouts", ["exercise_id"], name: "index_workouts_on_exercise_id", using: :btree
 
+  add_foreign_key "days", "programs"
+  add_foreign_key "histories", "challenges"
+  add_foreign_key "histories", "programs"
   add_foreign_key "identities", "users"
-  add_foreign_key "programs", "teams"
-  add_foreign_key "scores", "days"
-  add_foreign_key "scores", "teams"
+  add_foreign_key "memberships", "teams"
+  add_foreign_key "memberships", "users"
+  add_foreign_key "roles", "users"
+  add_foreign_key "scores", "histories"
   add_foreign_key "scores", "users"
+  add_foreign_key "teams", "challenges"
+  add_foreign_key "teams", "programs"
   add_foreign_key "workouts", "days"
   add_foreign_key "workouts", "exercises"
 end

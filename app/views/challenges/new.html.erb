@@ -1,0 +1,10 @@
+<%= simple_form_for @challenge do |f| %>
+
+  <%= f.input :name %>
+  <%= f.input :start_date, as: :date %>
+  <%= f.input :current_day %>
+  <%= f.collection_check_boxes :program_ids, Program.all, :id, :name %>
+
+  <%= f.submit %>
+
+<% end %>

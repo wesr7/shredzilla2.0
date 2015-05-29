@@ -1,3 +1,20 @@
+# == Schema Information
+#
+# Table name: users
+#
+#  id              :integer          not null, primary key
+#  first_name      :string
+#  last_name       :string
+#  height          :string
+#  weight          :float
+#  email           :string
+#  password_digest :string
+#  username        :string
+#  fitness         :string
+#  created_at      :datetime         not null
+#  updated_at      :datetime         not null
+#
+
 class User < ActiveRecord::Base
 
   TEMP_EMAIL_REGEX = /\Achange@me/
@@ -5,6 +22,8 @@ class User < ActiveRecord::Base
 
   # ActiveRecord Relations
   has_many :identities
+  has_many :memberships
+  has_many :teams, through: :memberships
 
   # Using BCrypt
   has_secure_password
