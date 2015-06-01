@@ -1,4 +1,8 @@
 class ChallengesController < ApplicationController
+  def index
+    @challenges = Challenge.all
+  end
+
   def new
     @challenge = Challenge.new
     @programs = Program.all
@@ -14,6 +18,9 @@ class ChallengesController < ApplicationController
       render new
     end
     # render plain: params
+  end
+
+  def show
   end
 
   def edit
