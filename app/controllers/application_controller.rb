@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
 
   # Globally rescue Authorization Errors in controller.
   # Returning 403 Forbidden if permission is denied
-  rescue_from Pundit::NotAuthorizedError, with: :permission_denied
+  # rescue_from Pundit::NotAuthorizedError, with: :permission_denied
 
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
