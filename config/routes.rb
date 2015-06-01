@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   # Omniauth Callbacks
   get '/auth/:provider/callback', to: 'sessions#create'
 
-  resources :users, :exercises, :challenges, :programs do
+  resources :users, :exercises, :challenges, :programs, :teams do
       resources :days do
         resources :workouts
       end

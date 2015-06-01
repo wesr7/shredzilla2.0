@@ -1,0 +1,11 @@
+<h1>Create a team.</h1>
+
+<%= simple_form_for @team do |f| %>
+
+  <%= f.input :name %>
+  <%= f.input :challenge_id, collection: Challenge.all, as: :select %>
+  <%= f.input :program_id, collection: Program.all, as: :select %>
+
+  <%= f.submit "Create Team" %>
+
+<% end %>
