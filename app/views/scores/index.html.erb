@@ -1,0 +1,17 @@
+<div class="container">
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<ul>
+<% @scores.each do |score| %>
+<li><%= score.day %></li>
+<li><%= link_to 'View Score', score_path(score) %></li>
+<% end %>
+</ul>
+</div>
+
+<%= link_to 'Add Score', new_score_path %>
