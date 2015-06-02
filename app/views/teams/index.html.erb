@@ -6,6 +6,10 @@
 <br />
 <br />
 <br />
+<div class="container">
+<h1>Choose Your Team</h1>
 <% @teams.each do |team| %>
-<%= team.name %>
+<p><%= team.name %></p>
+<p><%= link_to 'team', team_path(team) %></p>
 <% end %>
+</div>

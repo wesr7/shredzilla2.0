@@ -1,0 +1,15 @@
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<% if current_user.memberships == [] %>
+<% simple_form_for
+<%= link_to 'Join Team', teams_path %>
+<%= link_to 'Create Team', new_team_path %>
+<% else %>
+<%= current_user.name %>
+<% end %>
