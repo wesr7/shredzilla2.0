@@ -39,10 +39,11 @@ gem 'omniauth' # For social media logins.
 gem 'omniauth-facebook' # Facebook OAuth
 gem 'omniauth-twitter' # Twitter OAuth
 gem 'omniauth-google-oauth2' # Google OAuth
-gem 'foundation-rails' # Foundation CSS Framework
+gem 'bootstrap-sass' # Twitter Bootstrap CSS Framework
 gem 'font-awesome-rails' # Font Awesome Library Gem
 gem 'sidekiq' # Background processing for Ruby.
 gem 'simple_form' # Better form helpers.
+gem 'tinymce-rails' # TinyMCE rich text editor for textareas
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

@@ -24,6 +24,7 @@ class User < ActiveRecord::Base
   has_many :identities
   has_many :memberships
   has_many :teams, through: :memberships
+  has_many :posts
 
   # Using BCrypt
   has_secure_password
