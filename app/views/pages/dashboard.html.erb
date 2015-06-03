@@ -6,10 +6,13 @@
 <br />
 <br />
 <br />
+<div class="container">
 <% if current_user.memberships == [] %>
-<% simple_form_for
-<%= link_to 'Join Team', teams_path %>
+<%= simple_form_for(current_user, url: jointeam_path) do |s| %>
+<%= s.input :teams, collection: @teams  %>
+<%= s.submit 'Submit Choice' %>
+<% end %>
 <%= link_to 'Create Team', new_team_path %>
 <% else %>
-<%= current_user.name %>
+<%= current_user.first_name %>
 <% end %>

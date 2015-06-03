@@ -13,7 +13,7 @@ class ChallengesController < ApplicationController
     @challenge.programs << Program.all # Associate all existing Programs with created challenge.
 
     if @challenge.save
-      redirect_to root_path
+      redirect_to dashboard_path
     else
       render new
     end
