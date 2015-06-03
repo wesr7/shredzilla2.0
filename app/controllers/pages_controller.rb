@@ -18,7 +18,9 @@ class PagesController < ApplicationController
       @program = current_user.teams.first.program
       @wod = @program.days.where(day: Challenge.first.current_day).first.workouts
       @dailychallenge = @program.days.where(day: Challenge.first.current_day).first.dailychallenges
-      @score =
+      @score = Score.new
+      @score.day = @program.days.where(day: Challenge.first.current_day)
+      @score.user = current_user
     else
 
     end
