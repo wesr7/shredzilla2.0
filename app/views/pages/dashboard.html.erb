@@ -68,7 +68,8 @@
     <%= s.submit 'Submit Score' %>
 <% end %>
 <% else %>
-<h3>Score submitted for the day</h3>
+<h3>Today's total: <%= @total = @userscore.food + @userscore.workout + @userscore.sleep + @userscore.challenge + @userscore.daily_update %></h3>
+<h2>Keep up the good work!</h2>
 <% end %>
 </div>
 <% end %>
