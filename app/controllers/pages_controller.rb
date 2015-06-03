@@ -20,11 +20,16 @@ class PagesController < ApplicationController
       @dailychallenge = @program.days.where(day: Challenge.first.current_day).first.dailychallenges
       @score = Score.new
       @score.day = @program.days.where(day: Challenge.first.current_day)
-      @userscore = current_user.scores.first
-      @total = ''
+      if current_user.scores != []
+      @dailyscore = current_user.scores.first
+      @dailyscore.total = @dailyscore.food + @dailyscore.workout + @dailyscore.sleep + @dailyscore.challenge + @dailyscore.daily_update
+      @dailyscore.save!
+      @userscores = current_user.scores
+      @totalscore = []
     else
 
     end
+  end
   end
 
 

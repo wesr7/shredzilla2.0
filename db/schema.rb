@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150603172825) do
+ActiveRecord::Schema.define(version: 20150603213653) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -119,6 +119,7 @@ ActiveRecord::Schema.define(version: 20150603172825) do
     t.integer  "daily_update"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
+    t.integer  "total"
   end
 
   add_index "scores", ["history_id"], name: "index_scores_on_history_id", using: :btree
