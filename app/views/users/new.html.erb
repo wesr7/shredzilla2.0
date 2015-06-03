@@ -1,18 +1,28 @@
-<%= form_for @user do |f| %>
-  <label>First Name:</label>
-  <%= f.text_field :first_name %>
+<div class="signup">
+  <h2>SIGN UP</h2>
 
-  <label>Last Name:</label>
-  <%= f.text_field :last_name %>
+  <%= form_for @user do |f| %>
+    <div class="row" style="">
+      <div class="large-6 columns">
+        <label>First Name:</label>
+        <%= f.text_field :first_name %>
+      </div>
+      <div class="large-6 columns">
+        <label>Last Name:</label>
+        <%= f.text_field :last_name %>
+      </div>
+    </div>
 
-  <label>E-mail</label>
-  <%= f.email_field :email %>
+    <label>E-mail</label>
+    <%= f.email_field :email %>
 
-  <label>Password:</label>
-  <%= f.password_field :password %>
+    <label>Password:</label>
+    <%= f.password_field :password %>
 
-  <label>Confirm Password:</label>
-  <%= f.password_field :password_confirmation %>
+    <label>Confirm Password:</label>
+    <%= f.password_field :password_confirmation %>
 
-  <%= f.submit "Sign Up" %>
-<% end %>
+    <%= f.submit "Sign Up" %>
+  <% end %>
+</div>
+
