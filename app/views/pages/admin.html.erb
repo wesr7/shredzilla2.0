@@ -1,0 +1,19 @@
+<%= tinymce_assets %>
+
+<h2>Publish a Blog Post</h2>
+<div class="postform_wrapper">
+<% if current_user %>
+  <%= simple_form_for @post do |f| %>
+
+    <%= f.input :title, as: :string, input_html: { size: '100', class: 'form-control' } %>
+    <%= f.input :body, as: :text, input_html: { class: 'tinymce form-control' } %>
+
+    <%= f.submit "Publish Blog Post", class: 'btn btn-primary' %>
+
+  <% end %>
+<% end %>
+</div>
+
+
+
+<%= tinymce %>

@@ -25,7 +25,9 @@ class User < ActiveRecord::Base
   has_many :memberships, dependent: :destroy
   has_many :teams, through: :memberships, dependent: :destroy
   has_many :scores
+  has_many :posts
   # accepts_nested_attributes_for :memberships
+
   # Using BCrypt
   has_secure_password
 

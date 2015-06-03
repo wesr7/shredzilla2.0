@@ -1,4 +1,5 @@
-@import 'foundation_and_overrides.scss';
+@import "bootstrap-sprockets";
+@import "bootstrap";
 @import 'font-awesome';
 @import 'parallaxer.scss';
 @import url(http://fonts.googleapis.com/css?family=Lato);
@@ -30,7 +31,7 @@ body.small {
 
 header {
   height: 80px;
-  background-color: rgba(255, 255, 255, 1);
+  background-color: rgba(0, 0, 0, .9);
   -webkit-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.83);
   -moz-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.83);
   box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.83);
@@ -96,10 +97,11 @@ header {
 .signup {
   min-width: 500px;
   max-width: 600px;
-  margin: 0 auto;
+  margin: 150px auto 0;
   background: #CCCCCC;
   border: 1px solid #B3B3B3;
   border-radius: 5px;
+  padding: 15px;
 }
 
 .intro_image {
@@ -112,9 +114,14 @@ header {
 .top_bar {
   height: 80px;
   background-color: #fff;
-  -webkit-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.83);
-  -moz-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.83);
-  box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.83);
+  -webkit-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.73);
+  -moz-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.73);
+  box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.73);
+}
+
+.postform_wrapper {
+  width: 80%;
+  margin: 0 auto;
 }
 
 .nav_container {
@@ -123,4 +130,17 @@ header {
   padding-top: 20px;
   margin: 0 auto;
   border: 1px solid gray;
+}
+
+.fadeInBlock {
+  opacity:0;
+}
+
+footer {
+  background: #141414;
+  color: #7F7F7F;
+  font-size: 14px;
+  height: 70px;
+  width: 100%;
+  padding: 25px 0 0;
 }

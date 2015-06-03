@@ -3,12 +3,14 @@ Rails.application.routes.draw do
   root to: 'pages#index'
 
   get '/dashboard' => 'pages#dashboard'
-
+  get '/blog' => 'pages#blog'
+  get '/admin' => 'pages#admin'
   patch '/jointeam' => 'pages#jointeam'
+
   # Omniauth Callbacks
   get '/auth/:provider/callback', to: 'sessions#create'
 
-  resources :users, :exercises, :challenges, :programs, :teams do
+  resources :users, :exercises, :challenges, :programs, :teams, :posts do
       resources :days do
         resources :workouts
       end
