@@ -8,7 +8,6 @@ class PagesController < ApplicationController
 
   def dashboard
     @teams = Team.all
-    @workout = team.program.day
   end
 
   def jointeam
