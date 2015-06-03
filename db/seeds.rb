@@ -162,8 +162,12 @@ Team.create!([
   ])
 Challenge.create!([
   {name: 'Test Challenge',
-   start_date: Date.now,
+   start_date: Date.today,
    current_day: 1
   }
   ])
+Dailychallenge.create!([
+  {day_id: 1, description: "Introduce yourself on Glide."}
+  ])
+
 
