@@ -130,6 +130,7 @@ ActiveRecord::Schema.define(version: 20150603172825) do
     t.integer  "daily_update"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
+    t.integer  "total"
   end
 
   add_index "scores", ["history_id"], name: "index_scores_on_history_id", using: :btree
