@@ -157,6 +157,6 @@ Workout.create!([
 Team.create!([
   {name: 'Team Wes' },
   {name: 'Team Jordan' },
-  {name: 'Team Tex'},
-  {name: 'Team David'}
+  {name: 'Team Tex' },
+  {name: 'Team David' }
   ])
