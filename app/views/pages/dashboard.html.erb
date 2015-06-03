@@ -21,3 +21,27 @@
 <% end %>
 
 <% end %>
+
+</div>
+<table>
+  <thead>
+    <tr>
+      <th width="200">Exercise</th>
+      <th>Hold</th>
+      <th>Reps</th>
+      <th>Sets</th>
+      <th width="200">Timer</th>
+    </tr>
+  </thead>
+  <tbody>
+     <% @wod.each do |workout| %>
+    <tr>
+        <td><%= link_to workout.exercise.name, '#{workout.exercise.video}' %></td>
+        <td><%= workout.hold %> </td>
+        <td><%= workout.reps %></td>
+        <td><%= workout.sets %></td>
+        <td><%= workout.timer %></td>
+    </tr>
+      <% end %>
+  </tbody>
+</table>

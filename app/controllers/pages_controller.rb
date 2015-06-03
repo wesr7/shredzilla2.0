@@ -8,6 +8,10 @@ class PagesController < ApplicationController
 
   def dashboard
     @teams = Team.all
+    @program = current_user.teams.first.program
+    @wod = @program.days.where(day: Challenge.first.current_day).first.workouts
+
+
   end
 
   def jointeam
