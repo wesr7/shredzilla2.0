@@ -1,5 +1,106 @@
 @import 'foundation_and_overrides.scss';
 @import 'font-awesome';
+@import 'parallaxer.scss';
+@import url(http://fonts.googleapis.com/css?family=Lato);
+
+* {
+  font-family: "Lato";
+}
+
+header, nav, a, img, li, .logo {
+  transition: all 1s;
+  -moz-transition: all 1s; /* Firefox 4 */
+  -webkit-transition: all 1s; /* Safari and Chrome */
+  -o-transition: all 1s; /* Opera */
+}
+
+body {
+  margin-top: 80px;
+}
+
+body.large {
+  margin-top: 80px;
+}
+
+body.small {
+  margin-top: 50px;
+}
+
+/* Header */
+
+header {
+  height: 80px;
+  background-color: rgba(255, 255, 255, 1);
+  -webkit-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.83);
+  -moz-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.83);
+  box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.83);
+}
+  
+  header li {
+    font-weight: bold;
+  }
+
+  header li:not(:last-child) {
+    margin-right: 25px;
+  }
+
+  header.large {
+    height: 80px;
+  }
+
+  header.large .logo {
+    font-size: 40px;
+    font-weight: bold;
+    float: left;
+    padding-top: 10px;
+  }
+
+  header.large li {
+    margin-top: 22px;
+    font-size: 20px;
+  }
+
+  header.small {
+    height: 50px;
+  }
+
+  header.small .logo {
+    font-size: 30px;
+    font-weight: bold;
+    float: left;
+    margin-top: 2px;
+  }
+
+  header.small li {
+    margin-top: 12px;
+    font-size: 16px;
+  }
+
+/* End Header */
+
+.navigation {
+  max-width: 1300px;
+  padding: 0 30px;
+  margin: 0 auto;
+}
+
+.nav_links {
+  float: right;
+}
+
+  .nav_links li {
+    display: inline;
+    float: left;
+  }
+
+.signup {
+  min-width: 500px;
+  max-width: 600px;
+  margin: 0 auto;
+  background: #CCCCCC;
+  border: 1px solid #B3B3B3;
+  border-radius: 5px;
+}
 
 .intro_image {
   height: 100vh;

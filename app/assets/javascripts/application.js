@@ -17,3 +17,13 @@
 //= require_tree .
 
 $(function(){ $(document).foundation(); });
+
+$(document).on("scroll",function(){
+    if($(document).scrollTop()>80){
+        $("header").removeClass("large").addClass("small");
+        $("body").removeClass("large").addClass("small");
+    } else{
+        $("header").removeClass("small").addClass("large");
+        $("body").removeClass("small").addClass("large");
+    }
+});
