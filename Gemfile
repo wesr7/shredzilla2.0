@@ -43,7 +43,7 @@ gem 'foundation-rails' # Foundation CSS Framework
 gem 'font-awesome-rails' # Font Awesome Library Gem
 gem 'sidekiq' # Background processing for Ruby.
 gem 'simple_form' # Better form helpers.
-
+gem 'whenever', :require => false
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
