@@ -160,4 +160,10 @@ Team.create!([
   {name: 'Team Tex' },
   {name: 'Team David' }
   ])
+Challenge.create!([
+  {name: 'Test Challenge',
+   start_date: Date.now,
+   current_day: 1
+  }
+  ])
 
