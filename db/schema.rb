@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150529225335) do
+ActiveRecord::Schema.define(version: 20150603172825) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -28,6 +28,24 @@ ActiveRecord::Schema.define(version: 20150529225335) do
     t.integer "challenge_id", null: false
     t.integer "program_id",   null: false
   end
+
+  create_table "daily_challenges", force: :cascade do |t|
+    t.integer  "day_id"
+    t.string   "description"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "daily_challenges", ["day_id"], name: "index_daily_challenges_on_day_id", using: :btree
+
+  create_table "dailychallenges", force: :cascade do |t|
+    t.integer  "day_id"
+    t.string   "description"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "dailychallenges", ["day_id"], name: "index_dailychallenges_on_day_id", using: :btree
 
   create_table "days", force: :cascade do |t|
     t.integer  "program_id"
@@ -153,6 +171,8 @@ ActiveRecord::Schema.define(version: 20150529225335) do
   add_index "workouts", ["day_id"], name: "index_workouts_on_day_id", using: :btree
   add_index "workouts", ["exercise_id"], name: "index_workouts_on_exercise_id", using: :btree
 
+  add_foreign_key "daily_challenges", "days"
+  add_foreign_key "dailychallenges", "days"
   add_foreign_key "days", "programs"
   add_foreign_key "histories", "challenges"
   add_foreign_key "histories", "programs"
