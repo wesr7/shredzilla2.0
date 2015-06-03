@@ -28,14 +28,7 @@ class UsersController < ApplicationController
   end
 
   def update
-    # render plain: params[:user][:team_ids]
-    @user = User.find(params[:id])
-    @teams = @user.teams << params[:user][:team_ids].values.each do
-    if @teams.save
-      redirect_to dashboard_path
-    else
-      render :new
-    end
+
   end
 
   private
