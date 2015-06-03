@@ -23,8 +23,15 @@ class PagesController < ApplicationController
       @userscore = current_user.scores.first
       @total = ''
     else
-
     end
+  end
+
+  def blog
+    @posts = Post.all
+  end
+
+  def admin
+    @post = current_user.posts.new
   end
 
 

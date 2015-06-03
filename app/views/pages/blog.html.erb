@@ -1,0 +1,10 @@
+<div style="width: 80%; margin: 0 auto;">
+<% @posts.each do |post| %>
+
+  Title: <%= post.title %><br>
+  Body: <%= post.body.html_safe %><br>
+
+  Author: <%= User.find(post.user_id).first_name %><br><br><br>
+
+<% end %>
+</div>
