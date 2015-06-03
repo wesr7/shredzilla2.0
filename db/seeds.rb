@@ -157,6 +157,17 @@ Workout.create!([
 Team.create!([
   {name: 'Team Wes' },
   {name: 'Team Jordan' },
-  {name: 'Team Tex'},
-  {name: 'Team David'}
+  {name: 'Team Tex' },
+  {name: 'Team David' }
   ])
+Challenge.create!([
+  {name: 'Test Challenge',
+   start_date: Date.today,
+   current_day: 1
+  }
+  ])
+Dailychallenge.create!([
+  {day_id: 1, description: "Introduce yourself on Glide."}
+  ])
+
+

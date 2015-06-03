@@ -5,7 +5,8 @@ Rails.application.routes.draw do
   get '/dashboard' => 'pages#dashboard'
   get '/blog' => 'pages#blog'
   get '/admin' => 'pages#admin'
-  
+  patch '/jointeam' => 'pages#jointeam'
+
   # Omniauth Callbacks
   get '/auth/:provider/callback', to: 'sessions#create'
 
@@ -13,6 +14,7 @@ Rails.application.routes.draw do
       resources :days do
         resources :workouts
       end
+      resources :scores
   end
 
   # Routes for User Registration

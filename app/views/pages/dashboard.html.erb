@@ -6,3 +6,70 @@
 <br />
 <br />
 <br />
+
+<div class="container">
+
+<% if current_user.memberships == [] %>
+<%= simple_form_for(current_user, url: jointeam_path) do |s| %>
+<%= s.input :teams, collection: @teams  %>
+<%= s.submit 'Submit Choice' %>
+<% end %>
+<%= link_to 'Create Team', new_team_path %>
+<% else %>
+<h3>Time to get shredded <%=current_user.first_name %>!</h3>
+
+
+
+</div>
+<h2>Workout of the Day</h2>
+<table>
+  <thead>
+    <tr>
+      <th width="200">Exercise</th>
+      <th>Hold</th>
+      <th>Reps</th>
+      <th>Sets</th>
+      <th width="200">Timer</th>
+    </tr>
+  </thead>
+  <tbody>
+     <% @wod.each do |workout| %>
+    <tr>
+        <td><%= link_to workout.exercise.name, '#{workout.exercise.video}' %></td>
+        <td><%= workout.hold %> </td>
+        <td><%= workout.reps %></td>
+        <td><%= workout.sets %></td>
+        <td><%= workout.timer %></td>
+    </tr>
+      <% end %>
+  </tbody>
+</table>
+<div class="container">
+  <h2>Today's Challenge</h2>
+  <% @dailychallenge.each do |challenge| %>
+  <p><%= challenge.description %></p>
+  <% end %>
+</div>
+<% if current_user.scores == [] %>
+<div class="container">
+  <%= simple_form_for [current_user, @score] do |s| %>
+    <%= s.hidden_field :user_id, :value => [current_user.id] %>
+    <%= s.hidden_field :day, :value => [Challenge.first.current_day] %>
+    <%= s.label :food %>
+    <%= s.collection_select :food, [[4, "Perfection"], [3, "Near Perfection"], [2, "Almost Near Perfection"], [1, "The struggle is real"], [0, "You know, it happens"]], :first, :last %>
+    <%= s.label :workout %>
+    <%= s.collection_select :workout, [[3, "Workout Domination"], [0, "Missed Workout"]], :first, :last, as: :boolean, boolean_style: :inline %>
+    <%= s.label :sleep %>
+    <%= s.collection_select :sleep, [[1, 'Slept like a baby...'], [0, "More ZZZZZ's to come."]], :first, :last, boolean_style: :inline %>
+    <%= s.label :daily_update %>
+    <%= s.collection_select :daily_update, [[1, 'You know it!'], [0, 'I owe it!']], :first, :last, boolean_style: :inline %>
+    <%= s.label :challenge %>
+    <%= s.collection_select :challenge, [[1, 'Challenge, Smallenge'], [0, 'Womp, womp']], :first, :last, as: :boolean, boolean_style: :inline %>
+    <%= s.submit 'Submit Score' %>
+<% end %>
+<% else %>
+<h3>Today's total: <%= @total = @userscore.food + @userscore.workout + @userscore.sleep + @userscore.challenge + @userscore.daily_update %></h3>
+<h2>Keep up the good work!</h2>
+<% end %>
+</div>
+<% end %>

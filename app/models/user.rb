@@ -21,10 +21,12 @@ class User < ActiveRecord::Base
   validates_format_of :email, :without => TEMP_EMAIL_REGEX, on: :update
 
   # ActiveRecord Relations
-  has_many :identities
-  has_many :memberships
-  has_many :teams, through: :memberships
+  has_many :identities, dependent: :destroy
+  has_many :memberships, dependent: :destroy
+  has_many :teams, through: :memberships, dependent: :destroy
+  has_many :scores
   has_many :posts
+  # accepts_nested_attributes_for :memberships
 
   # Using BCrypt
   has_secure_password
@@ -32,5 +34,5 @@ class User < ActiveRecord::Base
   def email_verified?
     self.email && self.email !~ TEMP_EMAIL_REGEX
   end
-  
+
 end

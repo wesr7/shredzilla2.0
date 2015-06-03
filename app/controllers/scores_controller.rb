@@ -8,9 +8,10 @@ class ScoresController < ApplicationController
   end
 
   def create
+    # render plain: params
     @score = Score.new(score_params)
     if @score.save
-        redirect_to scores_path
+        redirect_to dashboard_path
     else
         render 'new'
     end
