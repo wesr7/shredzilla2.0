@@ -44,6 +44,7 @@
   <p><%= challenge.description %></p>
   <% end %>
 </div>
+<h2>Today's Score Card</h2>
 <% if current_user.scores.where(day: Challenge.first.current_day) == [] %>
 <div class="container">
     <%= simple_form_for [current_user, @score] do |s| %>
@@ -64,12 +65,12 @@
   <% else %>
     <h3>Today's total score: <%= @dailyscore.total %></h3>
     <h2>Keep up the good work!</h2>
-  <% end %>
      <h3>Challenge total:
       <% @userscores.each do |total| %>
       <% @totalscore << total.total %>
       <% end %>
       <%= @totalscore.inject(:+) %>
     </h3>
+  <% end %>
   <% end %>
 </div>
