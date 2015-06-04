@@ -2,6 +2,7 @@ class PagesController < ApplicationController
 
   def index
     skip_policy_scope
+    @posts = Post.all
   end
 
   def about

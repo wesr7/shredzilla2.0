@@ -1,17 +1,89 @@
-<div class="splash dzsparallaxer auto-init simple-parallax out-of-bootstrap" data-options='{ direction: "normal" }' style="height: 100vh">
-    <div class="divimage dzsparallaxer--target" style="width: 100%; height: 100vh; background-size: cover; background-image: url('http://static2.wallpedes.com/wallpaper/wallpapers/wallpapers-for-gt-fitness-backgrounds-hd-yoga-wallpapers-for-mobile-1080p-android-laptop-windows-7-mac-1366x768-wallpaper-iphone-nature.jpg'); background-position: center top;">
+<div class="splash dzsparallaxer auto-init simple-parallax out-of-bootstrap" data-options='{ direction: "normal" }' style="height: 100vh;">
+    <div class="divimage dzsparallaxer--target" style="width: 100%; height: 100vh; background-size: cover; background-image: url('https://www.wholelifechallenge.com/wp-content/uploads/2015/04/epic_run-crop.jpg'); background-position: center top;">
+
+      <div style="display: table; position: absolute; height: 100%; width: 100%;">
+        <div style="display: table-cell; vertical-align: middle;">
+          <div class="splashtext_container" style="margin: 0 auto; text-align: center;">
+            <h1 style="font-size: 72px; font-weight: bold; text-shadow: 2px 2px 1px rgba(150, 150, 150, 1);">Shredzilla Fitness Challenge</h1>
+            <p style="font-size: 20px; text-shadow: 2px 2px 1px rgba(150, 150, 150, 1);">Memorial Day Challenge is Underway!</p>
+            <p style="font-size: 20px; text-shadow: 2px 2px 1px rgba(150, 150, 150, 1);">Register to sign up for the next challenge.</p>
+
+            <%= link_to "Register", '/signup', class: 'btn btn-success' %>
+          </div>
+        </div>
+      </div>
+
     </div>
 </div>
 
-<h1>Root Page</h1>
+<div style="height: 300px; width: 100%; background: #000; display: table;">
+  <div style="display: table-cell; vertical-align: middle; text-align: center; padding: 0 90px 0 90px; color: #ffffff; font-size: 30px; line-height: 60px;">
+    The Shredzilla Challenge is a 56-day, habit-changing, community-building game
+that helps you live a happier, healthier life by playing for points with friends and family
+to make small daily changes.
+  </div>
+</div>
 
+<div class="section">
+  <div class="row" style="padding: 20px 0;">
+    <div class="col-sm-12">
+      <center><h1>How It Works</h1></center>
+    </div>
+  </div>
+  <div class="row" style="padding: 20px 0;">
+    <div class="col-sm-4">
+      <div class="hiw_section">
+      <%= fa_icon "users", class: 'hiw_icon' %>
+      <h3>Get in the Game</h3>
+      <p class>Sign up, create a team, and invite your friends to play with you! This Challenge is all about creating an environment of support that can last long after the Challenge ends.</p>
+      </div>
+    </div>
+    <div class="col-sm-4">
+      <div class="hiw_section">
+      <%= fa_icon "bar-chart", class: 'hiw_icon' %>
+      <h3>Measure Yourself</h3>
+      <p class>Get together with your team to take pre-Challenge fitness & body measurements. You’ll want to know where you started so you can say where you’re headed!</p>
+      </div>
+    </div>
+    <div class="col-sm-4">
+      <div class="hiw_section">
+      <%= fa_icon "leaf", class: 'hiw_icon' %>
+      <h3>Embrace New Habits</h3>
+      <p class>For 56 days, make conscious choices around the Whole Life Challenge 7 Daily Habits. Raising your awareness and being consistent, even in small ways, adds up to huge rewards.</p>
+      </div>
+    </div>
+  </div>
+  <div class="row" style="padding: 20px 0 40px;">
+    <div class="col-sm-4">
+      <div class="hiw_section">
+      <%= fa_icon "pencil", class: 'hiw_icon' %>
+      <h3>Focus on Action</h3>
+      <p class>Check-in to the website each day to record your score and connect with and support your teammates. Your keys to victory lie in accountability, support, and honest reflection.</p>
+      </div>
+    </div>
+    <div class="col-sm-4">
+      <div class="hiw_section">
+      <%= fa_icon "heart", class: 'hiw_icon' %>
+      <h3>Measure Your Results</h3>
+      <p class>Get back together with your team and repeat your pre-Challenge measurements. You’ll be amazed at how great you feel and perform after eight weeks of focused effort and teamwork!</p>
+      </div>
+    </div>
+    <div class="col-sm-4">
+      <div class="hiw_section">
+      <%= fa_icon "trophy", class: 'hiw_icon' %>
+      <h3>Celebrate Your Achievements</h3>
+      <p class>Celebrate your achievements! When you complete the Challenge you may not even recognize yourself anymore. How you look, feel, and live your life are now completely designed by you!</p>
+      </div>
+    </div>
+  </div>
+</div>
       <% if !current_user %>
-      <ul>
-        <li>Log In with:</li>
-        <li><%= link_to 'Google+', '/auth/google' %></li>
-        <li><%= link_to 'Facebook', '/auth/facebook' %></li>
-        <li><%= link_to 'Twitter', '/auth/twitter' %></li>
-      </ul>
+        <ul>
+          <li>Log In with:</li>
+          <li><%= link_to 'Google+', '/auth/google' %></li>
+          <li><%= link_to 'Facebook', '/auth/facebook' %></li>
+          <li><%= link_to 'Twitter', '/auth/twitter' %></li>
+        </ul>
       <% end %>
 
       Welcome <%= current_user.first_name if current_user %>!
@@ -19,52 +91,29 @@
       <%= link_to 'Login', '/login' if !current_user %>
       <%= link_to 'Logout', '/logout', method: :delete if current_user%>
 
+<section class="section" style="height: 120px; background: #227ED8; padding-top: 40px;">
+  <center><h1 style="display: inline;">Live by your rules.</h1><a href="/signup" class="btn btn-success">Register Now</a></center>
+</section>
 
-      <p>hello</p>
-      <p>hello</p>
-      <p>hello</p>
-      <p>hello</p>
-      <p class="fadeInBlock">hello</p>
-      <p>hello</p>
-      <p>hello</p>
-      <p>hello</p>
-      <p>hello</p>
-      <p>hello</p>
-      <p>hello</p>
-      <p>hello</p>
-      <p>hello</p>
-      <p>hello</p>
-      <p>hello</p>
-      <p>hello</p>
-      <p>hello</p>
-      <p>hello</p>
-      <p>hello</p>
-      <p>hello</p>
-      <p>hello</p>
-      <p>hello</p>
-      <p>hello</p>
-      <p>hello</p>
-      <p>hello</p>
-      <p>hello</p>
-      <p>hello</p>
-      <p>hello</p>
-      <p>hello</p>
-      <p>hello</p>
-      <p>hello</p>
-      <p>hello</p>
-      <p>hello</p>
-      <p>hello</p>
-      <p>hello</p>
-      <p>hello</p>
-      <p>hello</p>
-      <p>hello</p>
-      <p>hello</p>
 
-<section class="index_footer" style="height: 300px; width: 100%; background: #333333; color: #fff;">
+<section class="index_footer" style="height: 350px; width: 100%; background: #333333; color: #fff;">
   <div class="container">
     <div class="row">
-      <div class="col-sm-6">RECENT BLOG POSTS</div>
-      <div class="col-sm-6">INSTAGRAM</div>
+      <div class="col-sm-6">
+        <div class="footer_section" style="padding-top: 20px;">
+          <p class="section_title" style="font-size: 14px; color: #808080;">RECENT BLOG POSTS</p>
+          <% @posts.each do |post| %>
+            <%= link_to post.title, post_path(post) %><br />
+            <%= time_ago_in_words(post.created_at) %> ago.
+            <hr style="color: #808080;">
+          <% end %>
+        </div>
+      </div>
+      <div class="col-sm-6">
+        <div class="footer_section" style="padding-top: 20px;">
+          <p class="section_title" style="font-size: 14px; color: #808080;">INSTAGRAM</p>
+        </div>
+      </div>
     </div>
   </div>
 </section>

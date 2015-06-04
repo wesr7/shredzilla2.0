@@ -10,8 +10,8 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
 
-  after_action :verify_authorized, :except => :index
-  after_action :verify_policy_scoped, :only => :index
+  # after_action :verify_authorized, :except => :index
+  # after_action :verify_policy_scoped, :only => :index
 
   # allows you to use current_user in the view
   helper_method :current_user

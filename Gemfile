@@ -45,6 +45,7 @@ gem 'sidekiq' # Background processing for Ruby.
 gem 'simple_form' # Better form helpers.
 gem 'tinymce-rails' # TinyMCE rich text editor for textareas
 gem 'whenever', :require => false
+gem 'httparty'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
