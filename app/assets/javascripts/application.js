@@ -17,8 +17,6 @@
 //= require tinymce
 //= require_tree .
 
-$(function(){ $(document).foundation(); });
-
 $(document).on("scroll",function(){
     if($(document).scrollTop()>80){
         $("header").removeClass("large").addClass("small");
@@ -27,4 +25,21 @@ $(document).on("scroll",function(){
         $("header").removeClass("small").addClass("large");
         $("body").removeClass("small").addClass("large");
     }
+});
+
+
+function autoPlayYouTubeModal(){
+  var trigger = $("body").find('[data-toggle="modal"]');
+  trigger.click(function() {
+    var theModal = $(this).data( "target" ),
+    videoSRC = $(this).attr( "data-theVideo" ),
+    videoSRCauto = videoSRC+"?autoplay=1" ;
+    $(theModal+' iframe').attr('src', videoSRCauto);
+    $(theModal+' button.close').click(function () {
+        $(theModal+' iframe').attr('src', videoSRC);
+    });
+  });
+}
+$(document).ready(function(){
+autoPlayYouTubeModal();
 });

@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   get '/dashboard' => 'pages#dashboard'
   get '/blog' => 'pages#blog'
   get '/admin' => 'pages#admin'
+  get '/about' => 'pages#about'
   patch '/jointeam' => 'pages#jointeam'
 
   # Omniauth Callbacks
