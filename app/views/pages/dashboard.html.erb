@@ -26,7 +26,7 @@
         <tbody>
       <% @wod.each do |workout| %>
           <tr>
-            <td><%= link_to workout.exercise.name, '#{workout.exercise.video}' %></td>
+            <td><%= link_to workout.exercise.name, "#{workout.exercise.video}" %></td>
             <td><%= workout.hold %> </td>
             <td><%= workout.reps %></td>
             <td><%= workout.sets %></td>

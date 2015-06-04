@@ -268,7 +268,7 @@ Exercise.create!([
   {name: "Side Bridge - Knee Tuck", video: "http://youtu.be/LUil8oZopg8"},
   {name: "Side Bridge - Leg Lift", video: "http://youtu.be/VZr_2ZdkyQQ"},
   {name: "Split Squat Jump", video: "http://www.youtube.com/watch?v=bry_0XMxQKg"},
-  {name: "Split Squat RFE", video: "http://youtu.be/J6G2mAHiL3A"},
+  {name: "Split Squat RFE", video: "http://youtu.be/embed/J6G2mAHiL3A"},
   {name: "Squat", video: "http://www.youtube.com/watch?v=-J8OOtEqFtg"},
   {name: "Squat Jump", video: "http://www.youtube.com/watch?v=0fNHXgseCtI"},
   {name: "Step Run", video: "http://www.youtube.com/watch?v=t5PY1zlTNF4"},
