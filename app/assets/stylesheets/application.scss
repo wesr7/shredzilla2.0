@@ -6,13 +6,14 @@
 
 * {
   font-family: "Lato";
+  font-size: 16px;
 }
 
 header, nav, a, img, li, .logo {
-  transition: all 1s;
-  -moz-transition: all 1s; /* Firefox 4 */
-  -webkit-transition: all 1s; /* Safari and Chrome */
-  -o-transition: all 1s; /* Opera */
+  transition: all .5s;
+  -moz-transition: all .5s; /* Firefox 4 */
+  -webkit-transition: all .5s; /* Safari and Chrome */
+  -o-transition: all .5s; /* Opera */
 }
 
 body {
@@ -23,8 +24,20 @@ body.large {
   margin-top: 80px;
 }
 
+body.large .splash {
+  margin-top: -80px;
+}
+
 body.small {
   margin-top: 50px;
+}
+
+body.small .splash {
+  margin-top: -50px;
+}
+
+.splash {
+  margin-top: -80px;
 }
 
 /* Header */

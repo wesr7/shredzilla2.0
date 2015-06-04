@@ -26,6 +26,7 @@ class User < ActiveRecord::Base
   has_many :teams, through: :memberships, dependent: :destroy
   has_many :scores
   has_many :posts
+  has_many :roles
   # accepts_nested_attributes_for :memberships
 
   # Using BCrypt
@@ -33,6 +34,10 @@ class User < ActiveRecord::Base
 
   def email_verified?
     self.email && self.email !~ TEMP_EMAIL_REGEX
+  end
+
+  def admin?
+    self.roles.where(role: "admin").exists?
   end
 
 end
