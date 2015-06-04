@@ -1,6 +1,8 @@
 class PagesController < ApplicationController
 
   def index
+    skip_policy_scope
+    @posts = Post.all
   end
 
   def about
@@ -13,6 +15,7 @@ class PagesController < ApplicationController
   end
 
   def dashboard
+    skip_authorization
     @teams = Team.all
     if current_user.teams != []
       @program = current_user.teams.first.program

@@ -1,23 +1,23 @@
 class ChallengesController < ApplicationController
+
   def index
-    @challenges = Challenge.all
+    @challenges = policy_scope(Challenge)
   end
 
   def new
     @challenge = Challenge.new
-    @programs = Program.all
+    skip_authorization
   end
 
   def create
     @challenge = Challenge.new(challenge_params)
     @challenge.programs << Program.all # Associate all existing Programs with created challenge.
-
+    authorize @challenge
     if @challenge.save
       redirect_to dashboard_path
     else
       render new
     end
-    # render plain: params
   end
 
   def show

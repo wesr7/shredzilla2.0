@@ -2,17 +2,18 @@
 @import "bootstrap";
 @import 'font-awesome';
 @import 'parallaxer.scss';
-@import url(http://fonts.googleapis.com/css?family=Lato);
+@import url(https://fonts.googleapis.com/css?family=Lato);
 
 * {
   font-family: "Lato";
+  font-size: 16px;
 }
 
 header, nav, a, img, li, .logo {
-  transition: all 1s;
-  -moz-transition: all 1s; /* Firefox 4 */
-  -webkit-transition: all 1s; /* Safari and Chrome */
-  -o-transition: all 1s; /* Opera */
+  transition: all .5s;
+  -moz-transition: all .5s; /* Firefox 4 */
+  -webkit-transition: all .5s; /* Safari and Chrome */
+  -o-transition: all .5s; /* Opera */
 }
 
 body {
@@ -23,8 +24,20 @@ body.large {
   margin-top: 80px;
 }
 
+body.large .splash {
+  margin-top: -80px;
+}
+
 body.small {
   margin-top: 50px;
+}
+
+body.small .splash {
+  margin-top: -50px;
+}
+
+.splash {
+  margin-top: -80px;
 }
 
 /* Header */
@@ -54,6 +67,7 @@ header {
     font-weight: bold;
     float: left;
     padding-top: 10px;
+    color: #fff;
   }
 
   header.large li {
@@ -70,6 +84,7 @@ header {
     font-weight: bold;
     float: left;
     margin-top: 2px;
+    color: #fff;
   }
 
   header.small li {
@@ -134,6 +149,33 @@ header {
 
 .fadeInBlock {
   opacity:0;
+}
+
+.splashtext_container {
+  color: #ffffff;
+}
+
+.hiw_section {
+  padding-left: 53px;
+  font-size: 18px;
+  position: relative;
+}
+
+.hiw_icon {
+  top: 0px;
+  left: 0px;
+  font-size: 30px;
+  position: absolute;
+}
+
+.section {
+  padding: 0 80px;
+}
+
+hr {
+  border: 0;
+  height: 1px;
+  background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
 }
 
 footer {
