@@ -17,4 +17,5 @@ class Day < ActiveRecord::Base
   has_many :exercises, through: :workouts
   belongs_to :program
   has_many :dailychallenges
+  has_many :notes, through: :workouts
 end

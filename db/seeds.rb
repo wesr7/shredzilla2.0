@@ -1,9 +1,12 @@
+Challenge.create!([
+  {name: "Memorial Day Challenge", start_date: "2015-05-25", current_day: 9}
+])
 Program.create!([
-  {name: 'Shredzilla'},
-  {name: 'Beastzilla'},
-  {name: 'Fitzilla'},
-  {name: 'Strongzilla'}
-  ])
+  {name: "Shredzilla"},
+  {name: "Beastzilla"},
+  {name: "Fitzilla"},
+  {name: "Strongzilla"}
+])
 Day.create!([
   {program_id: 1, day: 1, description: nil, option_1: nil, option_2: nil},
   {program_id: 1, day: 2, description: nil, option_1: nil, option_2: nil},
@@ -108,6 +111,18 @@ Exercise.create!([
   {name: "Y", video: "http://www.youtube.com/watch?v=o4R-lG5wUSA"},
   {name: "Y-W", video: "http://youtu.be/mRix5boe6AQ"}
 ])
+Program.create!([
+  {name: "Shredzilla"},
+  {name: "Beastzilla"},
+  {name: "Fitzilla"},
+  {name: "Strongzilla"}
+])
+Team.create!([
+  {challenge_id: 1, program_id: 1, name: "Team Wes"},
+  {challenge_id: 1, program_id: 2, name: "Team Jordan"},
+  {challenge_id: 1, program_id: 4, name: "Team Tex"},
+  {challenge_id: nil, program_id: nil, name: "Team David"}
+])
 Workout.create!([
   {day_id: 1, exercise_id: 36, hold: "1 sec", reps: "20", sets: "4", timer: ":30 Rest Between Sets"},
   {day_id: 1, exercise_id: 36, hold: "30 sec*", reps: "1", sets: "4", timer: ":30 Rest Between Sets"},
@@ -154,20 +169,6 @@ Workout.create!([
   {day_id: 13, exercise_id: 38, hold: "X", reps: "20 R/L", sets: "As Many As Possible", timer: "10:00 Total"},
   {day_id: 13, exercise_id: 42, hold: "X", reps: "10", sets: "As Many As Possible", timer: "10:00 Total"}
 ])
-Team.create!([
-  {name: 'Team Wes' },
-  {name: 'Team Jordan' },
-  {name: 'Team Tex' },
-  {name: 'Team David' }
-  ])
-Challenge.create!([
-  {name: 'Test Challenge',
-   start_date: Date.today,
-   current_day: 1
-  }
-  ])
 Dailychallenge.create!([
   {day_id: 1, description: "Introduce yourself on Glide."}
-  ])
-
-
+])
