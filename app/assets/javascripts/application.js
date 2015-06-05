@@ -40,6 +40,7 @@ function autoPlayYouTubeModal(){
     });
   });
 }
+
 $(document).ready(function(){
 autoPlayYouTubeModal();
 });

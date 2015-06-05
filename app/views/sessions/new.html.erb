@@ -1,5 +1,5 @@
-<div style="width: 600px; background: #CCCCCC; border-radius: 5px; margin: 0 auto; padding: 10px;">
-<h2>SIGN IN</h2>
+<div style="width: 600px; background: #CCCCCC; border-radius: 5px; margin: 130px auto 30px; padding: 10px;">
+<h2 style="margin: 0 auto 10px;">SIGN IN</h2>
 
 <%= form_tag '/login' do %>
 
@@ -18,3 +18,10 @@
 <% end %>
 
 </div>
+
+<center>
+ <%= link_to "Log In with Facebook", '/auth/facebook', class: 'btn btn-primary' %> 
+ <%= link_to "Log In with Google+", '/auth/google', class: 'btn btn-danger' %> 
+ <%= link_to "Log In with Twitter", '/auth/twitter', class: 'btn btn-primary' %>
+</center>
+<br><br>

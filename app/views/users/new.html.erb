@@ -1,31 +1,41 @@
 <div class="signup">
-  <h2>SIGN UP</h2>
+  <h2 style="margin: 0 0 10px">SIGN UP</h2>
 
   <%= simple_form_for @user do |f| %>
+  <div class="row">
       <div class="col-sm-6">
         <%= f.input :first_name, input_html: { class: 'form-control' } %>
       </div>
       <div class="col-sm-6">
         <%= f.input :last_name, input_html: { class: 'form-control' } %>
       </div>
+  </div>
+  <div class="row">
       <div class="col-sm-12">
         <%= f.input :email, as: :email, input_html: { class: 'form-control' } %>
       </div>
+  </div>
+  <div class="row">
       <div class="col-sm-12">
         <%= f.input :password, as: :password, input_html: { class: 'form-control' } %>
       </div>
+  </div>
+  <div class="row">
       <div class="col-sm-12">
         <%= f.input :password_confirmation, as: :password, input_html: { class: 'form-control' } %>
       </div>
+  </div>
+  <div class="row">
       <div class="col-sm-12">
-      <%= f.submit "Sign Up", class: 'btn btn-primary' %>
+      <%= f.submit "Sign Up", class: 'btn btn-primary', style: 'margin-top: 15px;' %>
       </div>
+  </div>
   <% end %>
-  
+</div>
+<br><br>
   <div style="text-align: center;">
     <%= link_to "Sign Up using Facebook", '/auth/facebook', class: 'btn btn-primary' %>
     <%= link_to "Sign Up using Google+", '/auth/google', class: 'btn btn-danger' %>
     <%= link_to "Sign Up using Twitter", '/auth/twitter', class: 'btn btn-primary' %>
   </div>
-</div>
-
+<br><br>
