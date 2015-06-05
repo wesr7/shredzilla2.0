@@ -289,10 +289,6 @@ User.create!([
 Identity.create!([
   {user_id: 1, provider: "facebook", uid: "10100389381094530", token: "CAAG4qrZCKc3QBAIZAJJq7y31Rkq24d7K0QJJJkVZAFLmzaoIKoDZAE9wZBk0eGnNFDiHN52c6aMOZAPKXGGV0RMXQJB15q92dZAOoFH5xMUw7yxAE8rlrufEk3fWQRecfIhMBKT4IscbQmV2vu0XKrUcaJjhG2f1sBjrsOyzgMF8g0XveG389Pdxd3mV07QdZCD0fZATEO4qdJKUOQZBaJwZCZCh", secret: nil}
 ])
-Membership.create!([
-  {user_id: 1, team_id: 1, owner: nil},
-  {user_id: nil, team_id: 1, owner: nil}
-])
 Role.create!([
   {user_id: 1, role: "admin"}
 ])
@@ -308,6 +304,10 @@ Team.create!([
   {challenge_id: 1, program_id: 2, name: "Team Jordan"},
   {challenge_id: 1, program_id: 4, name: "Team Tex"},
   {challenge_id: nil, program_id: nil, name: "Team David"}
+])
+Membership.create!([
+  {user_id: 1, team_id: 1, owner: nil},
+  {user_id: nil, team_id: 1, owner: nil}
 ])
 Workout.create!([
   {day_id: 1, exercise_id: 36, hold: "1 sec", reps: "20", sets: "4", timer: ":30 Rest Between Sets"},
