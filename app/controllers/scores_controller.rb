@@ -36,7 +36,7 @@ class ScoresController < ApplicationController
 
   private
   def score_params
-    params.require(:score).permit(:day, :user_id, :food, :workout, :sleep, :daily_update, :challenge, :total)
+    params.require(:score).permit(:day, :user_id, :food, :workout, :sleep, :daily_update, :challenge, :total, :note)
   end
 
 end
