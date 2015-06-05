@@ -77,19 +77,7 @@ to make small daily changes.
     </div>
   </div>
 </div>
-      <% if !current_user %>
-        <ul>
-          <li>Log In with:</li>
-          <li><%= link_to 'Google+', '/auth/google' %></li>
-          <li><%= link_to 'Facebook', '/auth/facebook' %></li>
-          <li><%= link_to 'Twitter', '/auth/twitter' %></li>
-        </ul>
-      <% end %>
 
-      Welcome <%= current_user.first_name if current_user %>!
-
-      <%= link_to 'Login', '/login' if !current_user %>
-      <%= link_to 'Logout', '/logout', method: :delete if current_user%>
 
 <section class="section" style="height: 120px; background: #227ED8; padding-top: 40px;">
   <center><h1 style="display: inline;">Live by your rules. </h1> <a href="/signup" class="btn btn-success" style="margin-top: -16px;">Register Now</a></center>
