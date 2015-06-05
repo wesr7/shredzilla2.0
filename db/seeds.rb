@@ -1,11 +1,8 @@
 Challenge.create!([
   {name: "Memorial Day Challenge", start_date: "2015-05-25", current_day: 9}
 ])
-Program.create!([
-  {name: "Shredzilla"},
-  {name: "Beastzilla"},
-  {name: "Fitzilla"},
-  {name: "Strongzilla"}
+Dailychallenge.create!([
+  {day_id: 1, description: "Introduce yourself on Glide."}
 ])
 Day.create!([
   {program_id: 1, day: 1, description: nil, option_1: nil, option_2: nil},
@@ -279,17 +276,41 @@ Exercise.create!([
   {name: "Y", video: "https://www.youtube.com/embed/o4R-lG5wUSA"},
   {name: "Y-W", video: "https://www.youtube.com/embed/mRix5boe6AQ"}
 ])
+Identity.create!([
+  {user_id: 1, provider: "facebook", uid: "10100389381094530", token: "CAAG4qrZCKc3QBAIZAJJq7y31Rkq24d7K0QJJJkVZAFLmzaoIKoDZAE9wZBk0eGnNFDiHN52c6aMOZAPKXGGV0RMXQJB15q92dZAOoFH5xMUw7yxAE8rlrufEk3fWQRecfIhMBKT4IscbQmV2vu0XKrUcaJjhG2f1sBjrsOyzgMF8g0XveG389Pdxd3mV07QdZCD0fZATEO4qdJKUOQZBaJwZCZCh", secret: nil}
+])
+Membership.create!([
+  {user_id: 1, team_id: 1, owner: nil},
+  {user_id: nil, team_id: 1, owner: nil}
+])
 Program.create!([
   {name: "Shredzilla"},
   {name: "Beastzilla"},
   {name: "Fitzilla"},
+  {name: "Strongzilla"},
+  {name: "Shredzilla"},
+  {name: "Beastzilla"},
+  {name: "Fitzilla"},
   {name: "Strongzilla"}
+])
+Role.create!([
+  {user_id: 1, role: "admin"}
+])
+Score.create!([
+  {history_id: nil, user_id: 1, day: 9, food: 4, workout: 3, sleep: 1, challenge: 1, daily_update: 1, total: 10, note: "finished my workout in 10:30"},
+  {history_id: nil, user_id: 1, day: 1, food: 4, workout: 3, sleep: 0, challenge: 0, daily_update: 0, total: 7, note: nil},
+  {history_id: nil, user_id: 1, day: 2, food: 3, workout: 3, sleep: 0, challenge: 0, daily_update: 1, total: 7, note: nil},
+  {history_id: nil, user_id: 1, day: 3, food: 4, workout: 3, sleep: 0, challenge: 1, daily_update: 1, total: 9, note: nil},
+  {history_id: nil, user_id: 1, day: 4, food: 2, workout: 3, sleep: 0, challenge: 0, daily_update: 0, total: 5, note: nil}
 ])
 Team.create!([
   {challenge_id: 1, program_id: 1, name: "Team Wes"},
   {challenge_id: 1, program_id: 2, name: "Team Jordan"},
   {challenge_id: 1, program_id: 4, name: "Team Tex"},
   {challenge_id: nil, program_id: nil, name: "Team David"}
+])
+User.create!([
+  {first_name: "Wes", last_name: "Rodgers", height: nil, weight: nil, email: "wes4prez@gmail.com", password_digest: "$2a$10$7G5rxaYuja5pnQ5dnMTlWuA.aJYyp0clIIi0hIAi9lg1C2XDKjF5W", username: nil, fitness: nil}
 ])
 Workout.create!([
   {day_id: 1, exercise_id: 36, hold: "1 sec", reps: "20", sets: "4", timer: ":30 Rest Between Sets"},
@@ -468,7 +489,4 @@ Workout.create!([
   {day_id: 180, exercise_id: 34, hold: "X", reps: "10 R/L", sets: "As Many As Possible", timer: "10:00 Total"},
   {day_id: 180, exercise_id: 38, hold: "X", reps: "20 R/L", sets: "As Many As Possible", timer: "10:00 Total"},
   {day_id: 180, exercise_id: 42, hold: "X", reps: "10", sets: "As Many As Possible", timer: "10:00 Total"}
-])
-Dailychallenge.create!([
-  {day_id: 1, description: "Introduce yourself on Glide."}
 ])
