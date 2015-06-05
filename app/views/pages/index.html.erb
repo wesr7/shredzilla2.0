@@ -1,5 +1,5 @@
 <div class="splash dzsparallaxer auto-init simple-parallax out-of-bootstrap" data-options='{ direction: "normal" }' style="height: 100vh;">
-    <div class="divimage dzsparallaxer--target" style="width: 100%; height: 100vh; background-size: cover; background-image: url('https://www.wholelifechallenge.com/wp-content/uploads/2015/04/epic_run-crop.jpg'); background-position: center top;">
+    <div class="divimage dzsparallaxer--target" style="width: 100%; height: 100vh; background-size: cover; background-image: url(<%= asset_path 'epic_run-crop.jpg' %>); background-position: center top;">
 
       <div style="display: table; position: absolute; height: 100%; width: 100%;">
         <div style="display: table-cell; vertical-align: middle;">
@@ -92,7 +92,7 @@ to make small daily changes.
       <%= link_to 'Logout', '/logout', method: :delete if current_user%>
 
 <section class="section" style="height: 120px; background: #227ED8; padding-top: 40px;">
-  <center><h1 style="display: inline;">Live by your rules.</h1><a href="/signup" class="btn btn-success">Register Now</a></center>
+  <center><h1 style="display: inline;">Live by your rules. </h1> <a href="/signup" class="btn btn-success" style="margin-top: -16px;">Register Now</a></center>
 </section>
 
 
