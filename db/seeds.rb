@@ -286,9 +286,6 @@ User.create!([
   {first_name: "claude", last_name: "claude", email: "claude@claude.com", password: "claude", password_confirmation: "claude"},
   {first_name: "jordan", last_name: "jordan", email: "jordan@jordan.com", password: "jordan", password_confirmation: "jordan"}
 ])
-Role.create!([
-  {user_id: 1, role: "admin"}
-])
 Score.create!([
   {history_id: nil, user_id: 1, day: 9, food: 4, workout: 3, sleep: 1, challenge: 1, daily_update: 1, total: 10, note: "finished my workout in 10:30"},
   {history_id: nil, user_id: 1, day: 1, food: 4, workout: 3, sleep: 0, challenge: 0, daily_update: 0, total: 7, note: nil},

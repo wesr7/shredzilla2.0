@@ -27,7 +27,7 @@
 </section>
 
 <section class="section" style="padding-top: 20px;">
-  
+
   <center><h1>Your Workout for <%= @today %></h1></center>
   <% if @wod == [] && @day.description == nil %>
       <p><%=@day.option_1%></p>
@@ -131,6 +131,7 @@
       <% @userscores.each do |total| %>
       <% @totalscore << total.total %>
       <% end %>
+      <% @totalscore.compact! %>
       <%= @totalscore.inject(:+) %>
     </h3><br>
     <h2>Keep up the good work!</h2>
