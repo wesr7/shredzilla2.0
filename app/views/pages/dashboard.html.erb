@@ -15,8 +15,8 @@
 </section>
 
 <section class="section">
-  
-  <center><h1>Your Workout for Today</h1></center>
+
+  <center><h1>Your Workout for <%= @today %></h1></center>
   <% if @wod == [] && @day.description == nil %>
       <p><%=@day.option_1%></p>
       <p><%=@day.option_2%></p>
@@ -53,7 +53,7 @@
 </div>
 
 <section class="section">
-<center><h1>Challenge for Today<%= @today %></h1></center>
+<center><h1>Challenge for <%= @today %></h1></center>
 <% @dailychallenge.each do |challenge| %>
   <p><%= challenge.description %></p>
   <% end %>
@@ -81,7 +81,7 @@
 
 
 
-<h2>Today's Score Card</h2>
+<h2>Score Card for <%= @today %></h2>
 <% if current_user.scores.where(day: Challenge.first.current_day) == [] %>
 <div class="container">
     <%= simple_form_for [current_user, @score] do |s| %>
@@ -102,8 +102,8 @@
       <%= s.submit 'Submit' %>
     <% end %>
   <% else %>
-    <h3>Today's total score: <%= @dailyscore.total %></h3>
-    <h2>Keep up the good work!</h2>
+    <h3><%= @today %>'s total score: <%= @dailyscore.total %></h3>
+ <h2>Keep up the good work!</h2>
      <h3>Challenge total:
       <% @userscores.each do |total| %>
       <% @totalscore << total.total %>
