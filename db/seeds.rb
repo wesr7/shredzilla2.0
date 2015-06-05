@@ -1,9 +1,6 @@
 Challenge.create!([
   {name: "Memorial Day Challenge", start_date: "2015-05-25", current_day: 9}
 ])
-Dailychallenge.create!([
-  {day_id: 1, description: "Introduce yourself on Glide."}
-])
 Day.create!([
   {program_id: 1, day: 1, description: nil, option_1: nil, option_2: nil},
   {program_id: 1, day: 2, description: nil, option_1: nil, option_2: nil},
@@ -489,4 +486,7 @@ Workout.create!([
   {day_id: 180, exercise_id: 34, hold: "X", reps: "10 R/L", sets: "As Many As Possible", timer: "10:00 Total"},
   {day_id: 180, exercise_id: 38, hold: "X", reps: "20 R/L", sets: "As Many As Possible", timer: "10:00 Total"},
   {day_id: 180, exercise_id: 42, hold: "X", reps: "10", sets: "As Many As Possible", timer: "10:00 Total"}
+])
+Dailychallenge.create!([
+  {day_id: 1, description: "Introduce yourself on Glide."}
 ])
