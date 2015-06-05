@@ -28,7 +28,7 @@
 
 <section class="section" style="padding-top: 20px;">
   
-  <center><h1>Your Workout for Today</h1></center>
+  <center><h1>Your Workout for <%= @today %></h1></center>
   <% if @wod == [] && @day.description == nil %>
       <p><%=@day.option_1%></p>
       <p><%=@day.option_2%></p>
@@ -94,8 +94,8 @@
     <% end %>
 
 
+<center><h2>Score Card for <%= @today %></h2></center><br>
 
-<center><h2>Score Card for Today</h2></center><br>
 <% if current_user.scores.where(day: Challenge.first.current_day) == [] %>
 <div class="container">
     <%= simple_form_for [current_user, @score] do |s| %>
@@ -124,6 +124,7 @@
             </div><br><br>
     <% end %>
   <% else %>
+
     <center>
     <h3>Today's Total: <%= @dailyscore.total %></h3>
      <h3>Current Total for Challenge:
