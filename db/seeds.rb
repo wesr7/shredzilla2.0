@@ -286,9 +286,6 @@ Exercise.create!([
 User.create!([
   {first_name: "Wes", last_name: "Rodgers", height: nil, weight: nil, email: "wes4prez@gmail.com", password_digest: "$2a$10$7G5rxaYuja5pnQ5dnMTlWuA.aJYyp0clIIi0hIAi9lg1C2XDKjF5W", username: nil, fitness: nil}
 ])
-Identity.create!([
-  {user_id: 1, provider: "facebook", uid: "10100389381094530", token: "CAAG4qrZCKc3QBAIZAJJq7y31Rkq24d7K0QJJJkVZAFLmzaoIKoDZAE9wZBk0eGnNFDiHN52c6aMOZAPKXGGV0RMXQJB15q92dZAOoFH5xMUw7yxAE8rlrufEk3fWQRecfIhMBKT4IscbQmV2vu0XKrUcaJjhG2f1sBjrsOyzgMF8g0XveG389Pdxd3mV07QdZCD0fZATEO4qdJKUOQZBaJwZCZCh", secret: nil}
-])
 Role.create!([
   {user_id: 1, role: "admin"}
 ])
