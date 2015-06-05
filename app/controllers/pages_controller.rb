@@ -1,7 +1,7 @@
 class PagesController < ApplicationController
 
   def index
-    skip_policy_scope
+    # skip_policy_scope
     @posts = Post.all
   end
 
@@ -15,7 +15,7 @@ class PagesController < ApplicationController
   end
 
   def dashboard
-    skip_authorization
+    # skip_authorization
     @teams = Team.all
     @today = Date.today.strftime("%A")
     if current_user.teams != []
