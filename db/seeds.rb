@@ -1,6 +1,16 @@
 Challenge.create!([
   {name: "Memorial Day Challenge", start_date: "2015-05-25", current_day: 9}
 ])
+Program.create!([
+  {name: "Shredzilla"},
+  {name: "Beastzilla"},
+  {name: "Fitzilla"},
+  {name: "Strongzilla"},
+  {name: "Shredzilla"},
+  {name: "Beastzilla"},
+  {name: "Fitzilla"},
+  {name: "Strongzilla"}
+])
 Day.create!([
   {program_id: 1, day: 1, description: nil, option_1: nil, option_2: nil},
   {program_id: 1, day: 2, description: nil, option_1: nil, option_2: nil},
@@ -279,16 +289,6 @@ Identity.create!([
 Membership.create!([
   {user_id: 1, team_id: 1, owner: nil},
   {user_id: nil, team_id: 1, owner: nil}
-])
-Program.create!([
-  {name: "Shredzilla"},
-  {name: "Beastzilla"},
-  {name: "Fitzilla"},
-  {name: "Strongzilla"},
-  {name: "Shredzilla"},
-  {name: "Beastzilla"},
-  {name: "Fitzilla"},
-  {name: "Strongzilla"}
 ])
 Role.create!([
   {user_id: 1, role: "admin"}
