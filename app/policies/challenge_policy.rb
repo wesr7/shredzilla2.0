@@ -4,7 +4,7 @@ class ChallengePolicy < ApplicationPolicy
       if user.admin?
         scope.all
       else
-        scope.where(:id => 2)
+        scope.last
       end
     end
   end
@@ -18,6 +18,10 @@ class ChallengePolicy < ApplicationPolicy
   end
 
   def save?
+    user.admin?
+  end
+
+  def destroy?
     user.admin?
   end
 end

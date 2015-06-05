@@ -172,6 +172,22 @@ header {
   padding: 0 80px;
 }
 
+.dashboard_head {
+  height: 400px;
+  width: 100%;
+  position: relative;
+}
+
+.avatar {
+  width: 250px;
+  height: 300px;
+  background: #252525;
+  position: absolute;
+  top: 50px;
+  left: 100px;
+  z-index: 2;
+}
+
 hr {
   border: 0;
   height: 1px;
@@ -185,4 +201,15 @@ footer {
   height: 70px;
   width: 100%;
   padding: 25px 0 0;
+}
+
+th {
+  text-align: center;
+  padding: 5px;
+  border: 1px solid black;
+}
+
+td {
+  padding: 5px;
+  border: 1px solid black;
 }

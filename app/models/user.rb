@@ -27,10 +27,15 @@ class User < ActiveRecord::Base
   has_many :scores
   has_many :posts
   has_many :roles
-  # accepts_nested_attributes_for :memberships
+
+  after_initialize :set_default_role, :if => :new_record?
 
   # Using BCrypt
   has_secure_password
+
+  def set_default_role
+    self.roles.new(role: "user")
+  end
 
   def email_verified?
     self.email && self.email !~ TEMP_EMAIL_REGEX
@@ -38,6 +43,10 @@ class User < ActiveRecord::Base
 
   def admin?
     self.roles.where(role: "admin").exists?
+  end
+
+  def user?
+    self.roles.where(role: "user").exists?
   end
 
 end
