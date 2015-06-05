@@ -1,15 +1,11 @@
 Challenge.create!([
-  {name: "Memorial Day Challenge", start_date: "2015-05-25", current_day: 9}
+  {name: "Memorial Day Challenge", start_date: "2015-05-25", current_day: 11}
 ])
 Program.create!([
   {name: "Shredzilla"},
   {name: "Beastzilla"},
   {name: "Fitzilla"},
   {name: "Strongzilla"},
-  {name: "Shredzilla"},
-  {name: "Beastzilla"},
-  {name: "Fitzilla"},
-  {name: "Strongzilla"}
 ])
 Day.create!([
   {program_id: 1, day: 1, description: nil, option_1: nil, option_2: nil},
@@ -284,11 +280,11 @@ Exercise.create!([
   {name: "Y-W", video: "https://www.youtube.com/embed/mRix5boe6AQ"}
 ])
 User.create!([
-  {first_name: "Wes", last_name: "Rodgers", height: nil, weight: nil, email: "wes4prez@gmail.com", password_digest: "$2a$10$7G5rxaYuja5pnQ5dnMTlWuA.aJYyp0clIIi0hIAi9lg1C2XDKjF5W", username: nil, fitness: nil}
+  {first_name: "Wes", last_name: "Rodgers", height: nil, weight: nil, email: "wes4prez@gmail.com", password_digest: "$2a$10$7G5rxaYuja5pnQ5dnMTlWuA.aJYyp0clIIi0hIAi9lg1C2XDKjF5W", username: nil, fitness: nil},
   {first_name: "Dave", last_name: "Lee", email: "david@david.com", password: "david", password_confirmation: "david"},
   {first_name: "mark", last_name: "mark", email: "mark@mark.com", password: "mark", password_confirmation: "mark"},
   {first_name: "claude", last_name: "claude", email: "claude@claude.com", password: "claude", password_confirmation: "claude"},
-  {first_name: "jordan", last_name: "jordan", email: "jordan@jordan.com", password: "jordan", password_confirmation: "jordan"},
+  {first_name: "jordan", last_name: "jordan", email: "jordan@jordan.com", password: "jordan", password_confirmation: "jordan"}
 ])
 Role.create!([
   {user_id: 1, role: "admin"}
@@ -304,11 +300,14 @@ Team.create!([
   {challenge_id: 1, program_id: 1, name: "Team Wes"},
   {challenge_id: 1, program_id: 2, name: "Team Jordan"},
   {challenge_id: 1, program_id: 4, name: "Team Tex"},
-  {challenge_id: nil, program_id: nil, name: "Team David"}
+  {challenge_id: 1, program_id: 1, name: "Team David"}
 ])
 Membership.create!([
   {user_id: 1, team_id: 1, owner: nil},
-  {user_id: nil, team_id: 1, owner: nil}
+  {user_id: 2, team_id: 1, owner: nil},
+  {user_id: 3, team_id: 1, owner: nil},
+  {user_id: 4, team_id: 1, owner: nil},
+  {user_id: 5, team_id: 1, owner: nil}
 ])
 Workout.create!([
   {day_id: 1, exercise_id: 36, hold: "1 sec", reps: "20", sets: "4", timer: ":30 Rest Between Sets"},
@@ -509,52 +508,62 @@ Dailychallenge.create!([
   {day_id: 18, description: "Introduce yourself on Glide."}
 ])
 Score.create!([
-    {user_id: 1, day: 1, food:, 4, workout: 3, sleep: 1, challenge: 1, daily_update: 1, total: 10},
-    {user_id: 1, day: 2, food:, 3, workout: 2, sleep: 0, challenge: 0, daily_update: 1, total: 6},
-    {user_id: 1, day: 3, food:, 4, workout: 3, sleep: 1, challenge: 1, daily_update: 1, total: 10},
-    {user_id: 1, day: 4, food:, 4, workout: 3, sleep: 1, challenge: 1, daily_update: 1, total: 10},
-    {user_id: 1, day: 5, food:, 4, workout: 3, sleep: 1, challenge: 1, daily_update: 1, total: 10},
-    {user_id: 1, day: 6, food:, 4, workout: 3, sleep: 1, challenge: 1, daily_update: 1, total: 10},
-    {user_id: 1, day: 7, food:, 4, workout: 3, sleep: 1, challenge: 1, daily_update: 1, total: 10},
-    {user_id: 1, day: 8, food:, 4, workout: 3, sleep: 1, challenge: 1, daily_update: 1, total: 10}
+    {user_id: 1, day: 1, food: 4, workout: 3, sleep: 1, challenge: 1, daily_update: 1, total: 10},
+    {user_id: 1, day: 2, food: 3, workout: 2, sleep: 0, challenge: 0, daily_update: 1, total: 6},
+    {user_id: 1, day: 3, food: 4, workout: 3, sleep: 1, challenge: 1, daily_update: 1, total: 10},
+    {user_id: 1, day: 4, food: 4, workout: 3, sleep: 1, challenge: 1, daily_update: 1, total: 10},
+    {user_id: 1, day: 5, food: 4, workout: 3, sleep: 1, challenge: 1, daily_update: 1, total: 10},
+    {user_id: 1, day: 6, food: 4, workout: 3, sleep: 1, challenge: 1, daily_update: 1, total: 10},
+    {user_id: 1, day: 7, food: 4, workout: 3, sleep: 1, challenge: 1, daily_update: 1, total: 10},
+    {user_id: 1, day: 8, food: 4, workout: 3, sleep: 1, challenge: 1, daily_update: 1, total: 10},
+    {user_id: 1, day: 9, food: 3, workout: 3, sleep: 0, challenge: 0, daily_update: 0, total: 6},
+    {user_id: 1, day: 10, food: 2, workout: 0, sleep: 0, challenge: 0, daily_update: 0, total: 2}
   ])
 Score.create!([
-    {user_id: 2, day: 1, food:, 4, workout: 3, sleep: 1, challenge: 1, daily_update: 1, total: 10},
-    {user_id: 2, day: 2, food:, 4, workout: 3, sleep: 1, challenge: 1, daily_update: 1, total: 10},
-    {user_id: 2, day: 3, food:, 4, workout: 3, sleep: 1, challenge: 1, daily_update: 1, total: 10},
-    {user_id: 2, day: 4, food:, 4, workout: 3, sleep: 1, challenge: 1, daily_update: 1, total: 10},
-    {user_id: 2, day: 5, food:, 4, workout: 3, sleep: 1, challenge: 1, daily_update: 1, total: 10},
-    {user_id: 2, day: 6, food:, 4, workout: 3, sleep: 1, challenge: 1, daily_update: 1, total: 10},
-    {user_id: 2, day: 7, food:, 4, workout: 3, sleep: 1, challenge: 1, daily_update: 1, total: 10},
-    {user_id: 2, day: 8, food:, 4, workout: 3, sleep: 1, challenge: 1, daily_update: 1, total: 10}
+    {user_id: 2, day: 1, food: 4, workout: 3, sleep: 1, challenge: 1, daily_update: 1, total: 10},
+    {user_id: 2, day: 2, food: 4, workout: 3, sleep: 1, challenge: 1, daily_update: 1, total: 10},
+    {user_id: 2, day: 3, food: 4, workout: 3, sleep: 1, challenge: 1, daily_update: 1, total: 10},
+    {user_id: 2, day: 4, food: 4, workout: 3, sleep: 1, challenge: 1, daily_update: 1, total: 10},
+    {user_id: 2, day: 5, food: 4, workout: 3, sleep: 1, challenge: 1, daily_update: 1, total: 10},
+    {user_id: 2, day: 6, food: 4, workout: 3, sleep: 1, challenge: 1, daily_update: 1, total: 10},
+    {user_id: 2, day: 7, food: 4, workout: 3, sleep: 1, challenge: 1, daily_update: 1, total: 10},
+    {user_id: 2, day: 8, food: 4, workout: 3, sleep: 1, challenge: 1, daily_update: 1, total: 10},
+    {user_id: 1, day: 9, food: 3, workout: 3, sleep: 0, challenge: 0, daily_update: 0, total: 6},
+    {user_id: 1, day: 10, food: 2, workout: 0, sleep: 0, challenge: 0, daily_update: 0, total: 2}
   ])
 Score.create!([
-    {user_id: 3, day: 1, food:, 4, workout: 3, sleep: 1, challenge: 1, daily_update: 1, total: 10},
-    {user_id: 3, day: 2, food:, 4, workout: 3, sleep: 1, challenge: 1, daily_update: 1, total: 10},
-    {user_id: 3, day: 3, food:, 4, workout: 3, sleep: 1, challenge: 1, daily_update: 1, total: 10},
-    {user_id: 3, day: 4, food:, 4, workout: 3, sleep: 1, challenge: 1, daily_update: 1, total: 10},
-    {user_id: 3, day: 5, food:, 4, workout: 3, sleep: 1, challenge: 1, daily_update: 1, total: 10},
-    {user_id: 3, day: 6, food:, 4, workout: 3, sleep: 1, challenge: 1, daily_update: 1, total: 10},
-    {user_id: 3, day: 7, food:, 4, workout: 3, sleep: 1, challenge: 1, daily_update: 1, total: 10},
-    {user_id: 3, day: 8, food:, 4, workout: 3, sleep: 1, challenge: 1, daily_update: 1, total: 10}
+    {user_id: 3, day: 1, food: 4, workout: 3, sleep: 1, challenge: 1, daily_update: 1, total: 10},
+    {user_id: 3, day: 2, food: 4, workout: 3, sleep: 1, challenge: 1, daily_update: 1, total: 10},
+    {user_id: 3, day: 3, food: 4, workout: 3, sleep: 1, challenge: 1, daily_update: 1, total: 10},
+    {user_id: 3, day: 4, food: 4, workout: 3, sleep: 1, challenge: 1, daily_update: 1, total: 10},
+    {user_id: 3, day: 5, food: 4, workout: 3, sleep: 1, challenge: 1, daily_update: 1, total: 10},
+    {user_id: 3, day: 6, food: 4, workout: 3, sleep: 1, challenge: 1, daily_update: 1, total: 10},
+    {user_id: 3, day: 7, food: 4, workout: 3, sleep: 1, challenge: 1, daily_update: 1, total: 10},
+    {user_id: 3, day: 8, food: 4, workout: 3, sleep: 1, challenge: 1, daily_update: 1, total: 10},
+    {user_id: 1, day: 9, food: 3, workout: 3, sleep: 0, challenge: 0, daily_update: 0, total: 6},
+    {user_id: 1, day: 10, food: 2, workout: 0, sleep: 0, challenge: 0, daily_update: 0, total: 2}
   ])
 Score.create!([
-    {user_id: 4, day: 1, food:, 4, workout: 3, sleep: 1, challenge: 1, daily_update: 1, total: 10},
-    {user_id: 4, day: 2, food:, 4, workout: 3, sleep: 1, challenge: 1, daily_update: 1, total: 10},
-    {user_id: 4, day: 3, food:, 4, workout: 3, sleep: 1, challenge: 1, daily_update: 1, total: 10},
-    {user_id: 4, day: 4, food:, 4, workout: 3, sleep: 1, challenge: 1, daily_update: 1, total: 10},
-    {user_id: 4, day: 5, food:, 4, workout: 3, sleep: 1, challenge: 1, daily_update: 1, total: 10},
-    {user_id: 4, day: 6, food:, 4, workout: 3, sleep: 1, challenge: 1, daily_update: 1, total: 10},
-    {user_id: 4, day: 7, food:, 4, workout: 3, sleep: 1, challenge: 1, daily_update: 1, total: 10},
-    {user_id: 4, day: 8, food:, 4, workout: 3, sleep: 1, challenge: 1, daily_update: 1, total: 10}
+    {user_id: 4, day: 1, food: 4, workout: 3, sleep: 1, challenge: 1, daily_update: 1, total: 10},
+    {user_id: 4, day: 2, food: 4, workout: 3, sleep: 1, challenge: 1, daily_update: 1, total: 10},
+    {user_id: 4, day: 3, food: 4, workout: 3, sleep: 1, challenge: 1, daily_update: 1, total: 10},
+    {user_id: 4, day: 4, food: 4, workout: 3, sleep: 1, challenge: 1, daily_update: 1, total: 10},
+    {user_id: 4, day: 5, food: 4, workout: 3, sleep: 1, challenge: 1, daily_update: 1, total: 10},
+    {user_id: 4, day: 6, food: 4, workout: 3, sleep: 1, challenge: 1, daily_update: 1, total: 10},
+    {user_id: 4, day: 7, food: 4, workout: 3, sleep: 1, challenge: 1, daily_update: 1, total: 10},
+    {user_id: 4, day: 8, food: 4, workout: 3, sleep: 1, challenge: 1, daily_update: 1, total: 10},
+    {user_id: 1, day: 9, food: 3, workout: 3, sleep: 0, challenge: 0, daily_update: 0, total: 6},
+    {user_id: 1, day: 10, food: 2, workout: 0, sleep: 0, challenge: 0, daily_update: 0, total: 2}
   ])
 Score.create!([
-    {user_id: 5, day: 1, food:, 4, workout: 3, sleep: 1, challenge: 1, daily_update: 1, total: 10},
-    {user_id: 5, day: 2, food:, 4, workout: 3, sleep: 1, challenge: 1, daily_update: 1, total: 10},
-    {user_id: 5, day: 3, food:, 4, workout: 3, sleep: 1, challenge: 1, daily_update: 1, total: 10},
-    {user_id: 5, day: 4, food:, 4, workout: 3, sleep: 1, challenge: 1, daily_update: 1, total: 10},
-    {user_id: 5, day: 5, food:, 4, workout: 3, sleep: 1, challenge: 1, daily_update: 1, total: 10},
-    {user_id: 5, day: 6, food:, 4, workout: 3, sleep: 1, challenge: 1, daily_update: 1, total: 10},
-    {user_id: 5, day: 7, food:, 4, workout: 3, sleep: 1, challenge: 1, daily_update: 1, total: 10},
-    {user_id: 5, day: 8, food:, 4, workout: 3, sleep: 1, challenge: 1, daily_update: 1, total: 10}
+    {user_id: 5, day: 1, food: 4, workout: 3, sleep: 1, challenge: 1, daily_update: 1, total: 10},
+    {user_id: 5, day: 2, food: 4, workout: 3, sleep: 1, challenge: 1, daily_update: 1, total: 10},
+    {user_id: 5, day: 3, food: 4, workout: 3, sleep: 1, challenge: 1, daily_update: 1, total: 10},
+    {user_id: 5, day: 4, food: 4, workout: 3, sleep: 1, challenge: 1, daily_update: 1, total: 10},
+    {user_id: 5, day: 5, food: 4, workout: 3, sleep: 1, challenge: 1, daily_update: 1, total: 10},
+    {user_id: 5, day: 6, food: 4, workout: 3, sleep: 1, challenge: 1, daily_update: 1, total: 10},
+    {user_id: 5, day: 7, food: 4, workout: 3, sleep: 1, challenge: 1, daily_update: 1, total: 10},
+    {user_id: 5, day: 8, food: 4, workout: 3, sleep: 1, challenge: 1, daily_update: 1, total: 10},
+    {user_id: 1, day: 9, food: 3, workout: 3, sleep: 0, challenge: 0, daily_update: 0, total: 6},
+    {user_id: 1, day: 10, food: 2, workout: 0, sleep: 0, challenge: 0, daily_update: 0, total: 2}
   ])
