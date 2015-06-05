@@ -1,61 +1,85 @@
 
-<div class="container">
-  <% if current_user.memberships == [] %>
-    <%= simple_form_for(current_user, url: jointeam_path) do |s| %>
-      <%= s.input :teams, collection: @teams  %>
-      <%= s.submit 'Submit Choice' %>
-    <% end %>
-    <%= link_to 'Create Team', new_team_path %>
-  <% else %>
-  <h3>Time to get shredded <%=current_user.first_name %>!</h3>
-    <% if @wod == [] && @day.description == nil %>
+<div class="dashboard_head dzsparallaxer auto-init out-of-bootstrap" data-options='{ direction: "normal" }'>
+  <div class="avatar">
+    <center>
+      <img src="http://common.bbcomcdn.com/images/default-avatar/Avatar-Male-Default_145x145.jpg" style="width: 200px; height: 200px; margin-top: 20px;">
+      <p style="color: white; padding-top: 10px; font-weight: bold; font-size: 18px;"><%= current_user.first_name %> <%= current_user.last_name %></p>
+    </center>
+  </div>
+<div class="divimage dzsparallaxer--target" style="width: 100%; height: 640px; background-size: cover; background-image: url('http://assets.bodybuilding.com/bodyspace/images/sections/profile/BodyBanner_Default.jpg');">
+</div>
+</div>
+
+<section class="section" style="height: 100px; background: #3967B2; color: #fff; text-shadow: 2px 2px 1px rgba(150, 150, 150, 1);">
+  <center><h3 style="margin: 0; padding-top: 30px; font-size: 30px;">Time to get shredded <%= current_user.first_name if current_user %>!</h3></center>
+</section>
+
+<section class="section">
+  
+  <center><h1>Your Workout for Today</h1></center>
+  <% if @wod == [] && @day.description == nil %>
       <p><%=@day.option_1%></p>
       <p><%=@day.option_2%></p>
     <% elsif @wod != [] %>
-      <h2>Workout of the Day</h2>
-      <table>
-        <thead>
-          <tr>
-            <th width="200">Exercise</th>
-            <th>Hold</th>
-            <th>Reps</th>
-            <th>Sets</th>
-            <th width="200">Timer</th>
-          </tr>
-        </thead>
-        <tbody>
+
+    <table style="width: 100%; border: 1px solid black;">
+      <tr>
+        <th>Exercise</th>
+        <th>Hold</th>
+        <th>Reps</th>
+        <th>Sets</th>
+        <th>Timer</th>
+      </tr>
       <% @wod.each do |workout| %>
           <tr>
-            <td><a href="#" class="btn btn-default" data-toggle="modal" data-target="#videoModal" data-theVideo=<%="#{workout.exercise.video}"%> ><%=workout.exercise.name%></a></td>
+            <td><a data-toggle="modal" data-target="#videoModal" data-theVideo=<%="#{workout.exercise.video}"%> ><%=workout.exercise.name%></a></td>
             <td><%= workout.hold %> </td>
             <td><%= workout.reps %></td>
             <td><%= workout.sets %></td>
             <td><%= workout.timer %></td>
           </tr>
       <% end %>
-        </tbody>
-      </table>
-      <div class="modal fade" id="videoModal" tabindex="-1" role="dialog" aria-labelledby="videoModal" aria-hidden="true">
-              <div class="modal-dialog">
-                <div class="modal-content">
-                  <div class="modal-body">
-                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                    <div>
-                      <iframe width="100%" height="350" src=""></iframe>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+    </table>
+
+          <% else %>
+      <p><%=@day.description%></p>
+    <% end %>
+</section>
+
+<div class="dzsparallaxer auto-init out-of-bootstrap" data-options='{ direction: "normal" }' style="height: 150px;">
+<div class="divimage dzsparallaxer--target" style="width: 100%; height: 640px; background-size: cover; background-image: url('http://assets.bodybuilding.com/bodyspace/images/sections/profile/BodyBanner_Default.jpg');">
+</div>
+</div>
+
+<section class="section">
+<center><h1>Challenge for Today</h1></center>
+<% @dailychallenge.each do |challenge| %>
+  <p><%= challenge.description %></p>
+  <% end %>
+</section>
+
+<div class="dzsparallaxer auto-init out-of-bootstrap" data-options='{ direction: "normal" }' style="height: 150px;">
+<div class="divimage dzsparallaxer--target" style="width: 100%; height: 640px; background-size: cover; background-image: url('http://assets.bodybuilding.com/bodyspace/images/sections/profile/BodyBanner_Default.jpg');">
+</div>
+</div>
+
+  <% if current_user.memberships == [] %>
+    <%= simple_form_for(current_user, url: jointeam_path) do |s| %>
+      <%= s.input :teams, collection: @teams %>
+      <%= s.submit 'Submit Choice' %>
+    <% end %>
+    <%= link_to 'Create Team', new_team_path %>
+  <% else %>
+    <% if @wod == [] && @day.description == nil %>
+      <p><%=@day.option_1%></p>
+      <p><%=@day.option_2%></p>
+    <% elsif @wod != [] %>
     <% else %>
       <p><%=@day.description%></p>
     <% end %>
-<div class="container">
-  <h2>Today's Challenge</h2>
-  <% @dailychallenge.each do |challenge| %>
-  <p><%= challenge.description %></p>
-  <% end %>
-</div>
+
+
+
 <h2>Today's Score Card</h2>
 <% if current_user.scores.where(day: Challenge.first.current_day) == [] %>
 <div class="container">
@@ -85,4 +109,18 @@
     </h3>
   <% end %>
   <% end %>
-</div>
+
+
+
+      <div class="modal fade" id="videoModal" tabindex="-1" role="dialog" aria-labelledby="videoModal" aria-hidden="true">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-body">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <div>
+                      <iframe width="100%" height="350" src=""></iframe>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
