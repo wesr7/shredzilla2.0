@@ -10,6 +10,7 @@
 </div>
 </div>
 
+    <!-- if current does not have a team, prompt them to join a team -->
   <% if current_user.memberships == [] %>
     <center><h1>Looks like you aren't in a team!<br> Join or create your own!</h1></center>
     <div style="width: 600px; margin: 0 auto; padding: 10px; text-align: center;">
@@ -29,9 +30,13 @@
 <section class="section" style="padding-top: 20px;">
 
   <center><h1>Your Workout for <%= @today %></h1></center>
+
+  <!-- If there is no workout of the day or description show these options -->
   <% if @wod == [] && @day.description == nil %>
-      <p><%=@day.option_1%></p>
-      <p><%=@day.option_2%></p>
+      <p>Speed 1:<%=@day.option_1%></p>
+      <p>Speed 2:<%=@day.option_2%></p>
+
+  <!-- if there is a workout of the day -->
     <% elsif @wod != [] %>
 
     <table style="width: 100%; border: 1px solid black; margin: 60px 0;">
@@ -65,10 +70,12 @@
 </div>
 
 <section class="section">
-<center><h1>Challenge for <%= @today %></h1></center>
+<!-- challenge of the day -->
+<center><h1>Challenge for <%= @today %></h1>
 <% @dailychallenge.each do |challenge| %>
   <p><%= challenge.description %></p>
   <% end %>
+  </center>
 </section>
 
 <div class="dzsparallaxer auto-init out-of-bootstrap" data-options='{ direction: "normal" }' style="height: 150px;">
@@ -76,26 +83,9 @@
 </div>
 </div>
 
-  <% if current_user.memberships == [] %>
-
-    <center><h1>Looks like you aren't in a team! Join one or create your own!</h1></center>
-    <%= simple_form_for(current_user, url: jointeam_path) do |s| %>
-      <%= s.input :teams, collection: @teams %>
-      <%= s.submit 'Submit Choice' %>
-    <% end %>
-    <%= link_to 'Create Team', new_team_path %>
-  <% else %>
-    <% if @wod == [] && @day.description == nil %>
-      <p><%=@day.option_1%></p>
-      <p><%=@day.option_2%></p>
-    <% elsif @wod != [] %>
-    <% else %>
-      <p><%=@day.description%></p>
-    <% end %>
-
-
 <center><h2>Score Card for <%= @today %></h2></center><br>
 
+<!-- if users score for the day is empty show score card for the day -->
 <% if current_user.scores.where(day: Challenge.first.current_day) == [] %>
 <div class="container">
     <%= simple_form_for [current_user, @score] do |s| %>
@@ -125,9 +115,12 @@
     <% end %>
   <% else %>
 
+    <!-- else show score total for the day -->
     <center>
     <h3>Today's Total: <%= @dailyscore.total %></h3>
-     <h3>Current Total for Challenge:
+
+    <!-- This calculates the total score for each day of challenge -->
+     <h3> Challenge Total:
       <% @userscores.each do |total| %>
       <% @totalscore << total.total %>
       <% end %>
@@ -135,12 +128,13 @@
       <%= @totalscore.inject(:+) %>
     </h3><br>
     <h2>Keep up the good work!</h2>
+   <!--  <h4><a data-toggle="modal" data-target="#myModal">View All Scores</a></h4> -->
     </center>
   <% end %>
   <% end %>
-
-<% end %></div>
-
+</div>
+            </div>
+            <!-- Exercise video modal -->
             <div class="modal fade" id="videoModal" tabindex="-1" role="dialog" aria-labelledby="videoModal" aria-hidden="true">
               <div class="modal-dialog">
                 <div class="modal-content">
@@ -153,3 +147,45 @@
                 </div>
               </div>
             </div>
+
+
+
+            <!-- Current user score modal -->
+<!--             <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel"><%= current_user.first_name %> Scores</h4>
+                  </div>
+                  <div class="modal-body">
+                    <table>
+                      <tr>
+                        <td>Day</td>
+                        <td>Nutrition</td>
+                        <td>Workout</td>
+                        <td>Sleep</td>
+                        <td>Glide Update</td>
+                        <td>Daily Challenge</td>
+                        <td>Daily Total</td>
+                      </tr>
+                      <% @userscores.each do |score| %>
+                      <tr>
+                        <td><%= score.day %></td>
+                        <td><%= score.food %></td>
+                        <td><%= score.workout %></td>
+                        <td><%= score.sleep %></td>
+                        <td><%= score.daily_update %></td>
+                        <td><%= score.challenge %></td>
+                        <td><%= score.total %></td>
+                        <% end %>
+                      </tr>
+                    </table>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save changes</button>
+                  </div>
+                </div>
+              </div>
+            </div> -->
