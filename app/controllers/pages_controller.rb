@@ -17,10 +17,12 @@ class PagesController < ApplicationController
   def dashboard
     # skip_authorization
     @teams = Team.all
+    # displays the name of current day
     @today = Date.today.strftime("%A")
     if current_user.teams != []
       @program = current_user.teams.first.program
       @day = @program.days.where(day: Challenge.first.current_day).first
+      # @wod - short for workout out of the day
       @wod = @day.workouts
       @dailychallenge = @day.dailychallenges
       @score = Score.new
