@@ -5,7 +5,6 @@ class SessionsController < ApplicationController
   def create
     begin
       if params[:provider]
-
         @identity = Identity.from_omniauth(request.env['omniauth.auth'])
         session[:user_id] = @identity.user.id
         flash[:success] = "Welcome, #{@identity.user.first_name}!"
