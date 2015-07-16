@@ -18,7 +18,7 @@
       <%= s.input :teams, collection: @teams, input_html: { class: 'form-control' } %><br>
       <%= s.submit 'Submit Choice', class: 'btn btn-success' %><br>
     <% end %><br>
-    <%= link_to 'Create Team', new_team_path %>
+    <!-- <%= link_to 'Create Team', new_team_path %> -->
     </div>
   <% else %>
 
@@ -128,8 +128,12 @@
       <%= @totalscore.inject(:+) %>
     </h3><br>
     <h2>Keep up the good work!</h2>
-   <!--  <h4><a data-toggle="modal" data-target="#myModal">View All Scores</a></h4> -->
+    <% if @userscores == [] %>
+    <h2></h2>
+    <% else %>
+    <h4><a data-toggle="modal" data-target="#myModal">View All Scores</a></h4>
     </center>
+    <% end %>
   <% end %>
   <% end %>
 </div>
@@ -149,9 +153,11 @@
             </div>
 
 
-
+            <% if current_user.scores == [] %>
+              <h2></h2>
             <!-- Current user score modal -->
-<!--             <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <% else %>
+            <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
               <div class="modal-dialog">
                 <div class="modal-content">
                   <div class="modal-header">
@@ -188,4 +194,6 @@
                   </div>
                 </div>
               </div>
-            </div> -->
+            </div>
+
+            <% end %>

@@ -26,7 +26,7 @@ class User < ActiveRecord::Base
   has_many :teams, through: :memberships, dependent: :destroy
   has_many :scores
   has_many :posts
-  has_many :roles
+  has_many :roles, dependent: :destroy
 
   after_initialize :set_default_role, :if => :new_record?
 
