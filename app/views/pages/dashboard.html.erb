@@ -18,7 +18,7 @@
       <%= s.input :teams, collection: @teams, input_html: { class: 'form-control' } %><br>
       <%= s.submit 'Submit Choice', class: 'btn btn-success' %><br>
     <% end %><br>
-    <%= link_to 'Create Team', new_team_path %>
+    <!-- <%= link_to 'Create Team', new_team_path %> -->
     </div>
   <% else %>
 
@@ -128,8 +128,12 @@
       <%= @totalscore.inject(:+) %>
     </h3><br>
     <h2>Keep up the good work!</h2>
-   <!--  <h4><a data-toggle="modal" data-target="#myModal">View All Scores</a></h4> -->
+    <% if @userscores == [] %>
+    <h2></h2>
+    <% else %>
+    <h4><a data-toggle="modal" data-target="#myModal">View All Scores</a></h4>
     </center>
+    <% end %>
   <% end %>
   <% end %>
 </div>
@@ -149,4 +153,49 @@
             </div>
 
 
+
+            <% if current_user.scores == [] %>
+              <h2></h2>
+            <!-- Current user score modal -->
+            <% else %>
+            <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel"><%= current_user.first_name %> Scores</h4>
+                  </div>
+                  <div class="modal-body">
+                    <table>
+                      <tr>
+                        <td>Day</td>
+                        <td>Nutrition</td>
+                        <td>Workout</td>
+                        <td>Sleep</td>
+                        <td>Glide Update</td>
+                        <td>Daily Challenge</td>
+                        <td>Daily Total</td>
+                      </tr>
+                      <% @userscores.each do |score| %>
+                      <tr>
+                        <td><%= score.day %></td>
+                        <td><%= score.food %></td>
+                        <td><%= score.workout %></td>
+                        <td><%= score.sleep %></td>
+                        <td><%= score.daily_update %></td>
+                        <td><%= score.challenge %></td>
+                        <td><%= score.total %></td>
+                        <% end %>
+                      </tr>
+                    </table>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save changes</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <% end %>
 
