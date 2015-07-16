@@ -38,6 +38,8 @@ class Identity < ActiveRecord::Base
       user.first_name = auth_hash['info']['first_name'] if auth_hash['info']['first_name']
       user.first_name = auth_hash['info']['name'] unless auth_hash['info']['first_name']
 
+      user.picture = auth_hash['info']['image']
+
       user.last_name = auth_hash['info']['last_name']
       user.password = SecureRandom.hex # Since user is logging in with OAuth, assign a random password to pass validation.
       user.save!
@@ -56,6 +58,7 @@ class Identity < ActiveRecord::Base
       identity.user.first_name = auth_hash['info']['first_name'] if identity.user.first_name == nil && auth_hash['info']['first_name']
       identity.user.first_name = auth_hash['info']['name'] if identity.user.first_name == nil && !auth_hash['info']['first_name']
       identity.user.last_name = auth_hash['info']['last_name'] if identity.user.last_name == nil
+      identity.user.picture = auth_hash['info']['image'] if identity.user.picture == nil
       identity.user.save! unless auth_hash['provider'] == 'twitter' # Temporary until I implement e-mail verification later.
 
       return identity

@@ -2,7 +2,7 @@
 <div class="dashboard_head dzsparallaxer auto-init out-of-bootstrap" data-options='{ direction: "normal" }'>
   <div class="avatar">
     <center>
-      <img src="http://common.bbcomcdn.com/images/default-avatar/Avatar-Male-Default_145x145.jpg" style="width: 200px; height: 200px; margin-top: 20px;">
+      <img src= <%="#{current_user.picture}"%> style="width: 200px; height: 200px; margin-top: 20px;">
       <p style="color: white; padding-top: 10px; font-weight: bold; font-size: 18px;"><%= current_user.first_name %> <%= current_user.last_name %></p>
     </center>
   </div>
@@ -33,8 +33,8 @@
 
   <!-- If there is no workout of the day or description show these options -->
   <% if @wod == [] && @day.description == nil %>
-      <p>Speed 1:<%=@day.option_1%></p>
-      <p>Speed 2:<%=@day.option_2%></p>
+      <p>Speed 1: <%=@day.option_1%></p>
+      <p>Speed 2: <%=@day.option_2%></p>
 
   <!-- if there is a workout of the day -->
     <% elsif @wod != [] %>
@@ -59,7 +59,7 @@
     </table>
 
           <% else %>
-      <p><%=@day.description%></p>
+      <center><p>Recovery day: <%=@day.description%></p></center>
     <% end %>
 
 </section>
@@ -153,6 +153,7 @@
             </div>
 
 
+
             <% if current_user.scores == [] %>
               <h2></h2>
             <!-- Current user score modal -->
@@ -197,3 +198,4 @@
             </div>
 
             <% end %>
+

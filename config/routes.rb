@@ -20,7 +20,7 @@ Rails.application.routes.draw do
 
   # Routes for User Registration
   get '/signup' => 'users#new'
-  # post '/users' => 'users#create'
+  post '/users' => 'users#create'
 
   # Routes for Sessions / Authentication
   get '/login' => 'sessions#new'
