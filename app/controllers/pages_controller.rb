@@ -27,14 +27,14 @@ class PagesController < ApplicationController
       @dailychallenge = @day.dailychallenges
       @score = Score.new
       @score.day = @day.id
-      if current_user.scores != []
-      @dailyscore = current_user.scores.first
-      @dailyscore.total = @dailyscore.food + @dailyscore.workout + @dailyscore.sleep + @dailyscore.challenge + @dailyscore.daily_update
-      @dailyscore.save!
-      @userscores = current_user.scores
-      @totalscore = []
-    else
-    end
+        if current_user.scores != []
+          @dailyscore = current_user.scores.last
+          @dailyscore.total = @dailyscore.food + @dailyscore.workout + @dailyscore.sleep + @dailyscore.challenge + @dailyscore.daily_update
+          @dailyscore.save!
+          @userscores = current_user.scores
+          @totalscore = []
+        else
+      end
     end
   end
 

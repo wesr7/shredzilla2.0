@@ -29,16 +29,17 @@
 
 <section class="section" style="padding-top: 20px;">
 
-  <center><h1>Your Workout for <%= @today %></h1></center>
+
 
   <!-- If there is no workout of the day or description show these options -->
   <% if @wod == [] && @day.description == nil %>
+  <center><h1>Your Workout for <%= @today %>!</h1></center>
       <p>Speed 1: <%=@day.option_1%></p>
       <p>Speed 2: <%=@day.option_2%></p>
 
-  <!-- if there is a workout of the day -->
-    <% elsif @wod != [] %>
-
+  <!-- if there is a workout of the day and the current users last scorecard day key is not equal to the current day-->
+    <% elsif @wod != [] && current_user.scores.last.day != @day.day %>
+    <center><h1>Your Workout for <%= @today %>!</h1></center>
     <table style="width: 100%; border: 1px solid black; margin: 60px 0;">
       <tr>
         <th>Exercise</th>
@@ -57,9 +58,11 @@
           </tr>
       <% end %>
     </table>
-
-          <% else %>
+      <!-- if there is a description -->
+      <% elsif @day.description != nil %>
       <center><p>Recovery day: <%=@day.description%></p></center>
+      <% else %>
+      <center><h1>Great Job Today!</h1></center>
     <% end %>
 
 </section>

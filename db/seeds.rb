@@ -280,7 +280,7 @@ Exercise.create!([
   {name: "Y-W", video: "https://www.youtube.com/embed/mRix5boe6AQ"}
 ])
 User.create!([
-  {first_name: "Wes", last_name: "Rodgers", height: nil, weight: nil, email: "wes4prez@gmail.com", password_digest: "$2a$10$7G5rxaYuja5pnQ5dnMTlWuA.aJYyp0clIIi0hIAi9lg1C2XDKjF5W", username: nil, fitness: nil},
+  {first_name: "Wes", last_name: "Rodgers", height: nil, weight: nil, email: "wes4prez@gmail.com",password: "wes", password_confirmation: "wes", username: nil, fitness: nil},
   {first_name: "Dave", last_name: "Lee", email: "david@david.com", password: "david", password_confirmation: "david"},
   {first_name: "mark", last_name: "mark", email: "mark@mark.com", password: "mark", password_confirmation: "mark"},
   {first_name: "claude", last_name: "claude", email: "claude@claude.com", password: "claude", password_confirmation: "claude"},
@@ -525,8 +525,8 @@ Score.create!([
     {user_id: 2, day: 6, food: 4, workout: 3, sleep: 1, challenge: 1, daily_update: 1, total: 10},
     {user_id: 2, day: 7, food: 4, workout: 3, sleep: 1, challenge: 1, daily_update: 1, total: 10},
     {user_id: 2, day: 8, food: 4, workout: 3, sleep: 1, challenge: 1, daily_update: 1, total: 10},
-    {user_id: 1, day: 9, food: 3, workout: 3, sleep: 0, challenge: 0, daily_update: 0, total: 6},
-    {user_id: 1, day: 10, food: 2, workout: 0, sleep: 0, challenge: 0, daily_update: 0, total: 2}
+    {user_id: 2, day: 9, food: 3, workout: 3, sleep: 0, challenge: 0, daily_update: 0, total: 6},
+    {user_id: 2, day: 10, food: 2, workout: 0, sleep: 0, challenge: 0, daily_update: 0, total: 2}
   ])
 Score.create!([
     {user_id: 3, day: 1, food: 4, workout: 3, sleep: 1, challenge: 1, daily_update: 1, total: 10},
@@ -537,8 +537,8 @@ Score.create!([
     {user_id: 3, day: 6, food: 4, workout: 3, sleep: 1, challenge: 1, daily_update: 1, total: 10},
     {user_id: 3, day: 7, food: 4, workout: 3, sleep: 1, challenge: 1, daily_update: 1, total: 10},
     {user_id: 3, day: 8, food: 4, workout: 3, sleep: 1, challenge: 1, daily_update: 1, total: 10},
-    {user_id: 1, day: 9, food: 3, workout: 3, sleep: 0, challenge: 0, daily_update: 0, total: 6},
-    {user_id: 1, day: 10, food: 2, workout: 0, sleep: 0, challenge: 0, daily_update: 0, total: 2}
+    {user_id: 3, day: 9, food: 3, workout: 3, sleep: 0, challenge: 0, daily_update: 0, total: 6},
+    {user_id: 3, day: 10, food: 2, workout: 0, sleep: 0, challenge: 0, daily_update: 0, total: 2}
   ])
 Score.create!([
     {user_id: 4, day: 1, food: 4, workout: 3, sleep: 1, challenge: 1, daily_update: 1, total: 10},
@@ -549,8 +549,8 @@ Score.create!([
     {user_id: 4, day: 6, food: 4, workout: 3, sleep: 1, challenge: 1, daily_update: 1, total: 10},
     {user_id: 4, day: 7, food: 4, workout: 3, sleep: 1, challenge: 1, daily_update: 1, total: 10},
     {user_id: 4, day: 8, food: 4, workout: 3, sleep: 1, challenge: 1, daily_update: 1, total: 10},
-    {user_id: 1, day: 9, food: 3, workout: 3, sleep: 0, challenge: 0, daily_update: 0, total: 6},
-    {user_id: 1, day: 10, food: 2, workout: 0, sleep: 0, challenge: 0, daily_update: 0, total: 2}
+    {user_id: 4, day: 9, food: 3, workout: 3, sleep: 0, challenge: 0, daily_update: 0, total: 6},
+    {user_id: 4, day: 10, food: 2, workout: 0, sleep: 0, challenge: 0, daily_update: 0, total: 2}
   ])
 Score.create!([
     {user_id: 5, day: 1, food: 4, workout: 3, sleep: 1, challenge: 1, daily_update: 1, total: 10},
@@ -561,6 +561,6 @@ Score.create!([
     {user_id: 5, day: 6, food: 4, workout: 3, sleep: 1, challenge: 1, daily_update: 1, total: 10},
     {user_id: 5, day: 7, food: 4, workout: 3, sleep: 1, challenge: 1, daily_update: 1, total: 10},
     {user_id: 5, day: 8, food: 4, workout: 3, sleep: 1, challenge: 1, daily_update: 1, total: 10},
-    {user_id: 1, day: 9, food: 3, workout: 3, sleep: 0, challenge: 0, daily_update: 0, total: 6},
-    {user_id: 1, day: 10, food: 2, workout: 0, sleep: 0, challenge: 0, daily_update: 0, total: 2}
+    {user_id: 5, day: 9, food: 3, workout: 3, sleep: 0, challenge: 0, daily_update: 0, total: 6},
+    {user_id: 5, day: 10, food: 2, workout: 0, sleep: 0, challenge: 0, daily_update: 0, total: 2}
   ])
