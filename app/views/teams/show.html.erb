@@ -11,11 +11,11 @@
     <% end %>
         <% @users.each do |u| %>
             <% u.scores.each do |s|%>
-        <% @totalscore << s.total %>
+        <td class="text-center"><%= s.total =%></td>
             <% end %>
         <% end %>
-        <% @totalscore.compact! %>
-        <td class="text-center"><%= @totalscore.inject(:+) =%></td>
+
+
     </tr>
 
     </table>
