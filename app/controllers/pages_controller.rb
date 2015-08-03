@@ -33,7 +33,6 @@ class PagesController < ApplicationController
           @dailyscore.save!
           @userscores = current_user.scores
           @totalscore = []
-        else
       end
     end
   end

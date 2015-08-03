@@ -1,5 +1,5 @@
 Challenge.create!([
-  {name: "8-3-15", start_date: "2015-08-03", current_day: 0}
+  {name: "8-3-15", start_date: "2015-08-03", current_day: 1}
 ])
 Program.create!([
   {name: "Shredzilla"},
