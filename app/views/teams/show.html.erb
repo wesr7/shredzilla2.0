@@ -9,7 +9,9 @@
     <tr>
         <td class="text-center"><%= "#{u.first_name} #{u.last_name}" =%></td>
             <% u.scores.each do |s|%>
-        <td class="text-center"><%= s.total =%></td>
+            <% @totalscore << s.total %>
+            <% @totalscore.compact! %>
+        <td class="text-center"><%= @totalscore.inject(:+) =%></td>
             <% end %>
         <% end %>
 
