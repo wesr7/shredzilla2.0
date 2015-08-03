@@ -14,7 +14,7 @@ Rails.application.routes.draw do
   resources :exercises, :challenges, :programs, :teams, :posts, :days, :workouts
 
   resources :users do
-    :scores
+    resources :scores
   end
 
 
