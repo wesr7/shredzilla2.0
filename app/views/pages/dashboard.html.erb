@@ -128,7 +128,9 @@
       <% @totalscore << total.total %>
       <% end %>
       <% @totalscore.compact! %>
-      <%= @totalscore.inject(:+) %>
+      <% @userscores.last.challengetotal = @totalscore.inject(:+) %>
+      <% @userscores.last.save %>
+      <%= @userscores.last.challengetotal =%>
     </h3><br>
     <h2>Keep up the good work!</h2>
     <% if @userscores == [] %>

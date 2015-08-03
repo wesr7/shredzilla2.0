@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150622190705) do
+ActiveRecord::Schema.define(version: 20150803213131) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -127,10 +127,11 @@ ActiveRecord::Schema.define(version: 20150622190705) do
     t.integer  "sleep"
     t.integer  "challenge"
     t.integer  "daily_update"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
     t.integer  "total"
     t.string   "note"
+    t.integer  "challengetotal"
   end
 
   add_index "scores", ["history_id"], name: "index_scores_on_history_id", using: :btree

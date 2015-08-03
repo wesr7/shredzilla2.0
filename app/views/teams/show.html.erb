@@ -8,11 +8,7 @@
     <% @users.each do |u| %>
     <tr>
         <td class="text-center"><%= "#{u.first_name} #{u.last_name}" =%></td>
-            <% u.scores.each do |s|%>
-            <% @totalscore << s.total %>
-            <% @totalscore.compact! %>
-        <td class="text-center"><%= @totalscore.inject(:+) =%></td>
-            <% end %>
+        <td class="text-center"><%= u.scores.first.challengetotal =%></td>
         <% end %>
 
 
