@@ -5,9 +5,9 @@
         <th>Name</th>
         <th>Total Score</th>
     </tr>
-
-    <tr>
     <% @users.each do |u| %>
+    <tr>
+
         <td class="text-center"><%= "#{u.first_name} #{u.last_name}" =%></td>
         <% if u.scores.last == nil %>
         <td>No Score Yet</td>
