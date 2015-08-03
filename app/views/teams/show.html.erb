@@ -8,8 +8,6 @@
     <% @users.each do |u| %>
     <tr>
         <td class="text-center"><%= "#{u.first_name} #{u.last_name}" =%></td>
-    <% end %>
-        <% @users.each do |u| %>
             <% u.scores.each do |s|%>
         <td class="text-center"><%= s.total =%></td>
             <% end %>
