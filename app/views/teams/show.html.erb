@@ -10,7 +10,7 @@
 
         <td class="text-center"><%= "#{u.first_name} #{u.last_name}" =%></td>
         <% if u.scores.last == nil %>
-        <td>No Score Yet</td>
+        <td class="text-center">No Score Yet</td>
         <% else %>
         <td class="text-center"><%= u.scores.last.challengetotal =%></td>
         <% end %>
