@@ -135,6 +135,7 @@
     <h2></h2>
     <% else %>
     <h4><a data-toggle="modal" data-target="#myModal">View All Scores</a></h4>
+    <p><%= link_to 'Check out how your teammates are doing??', "teams/#{@team.first.id}" %></p>
     </center>
     <% end %>
   <% end %>
@@ -194,7 +195,6 @@
                   </div>
                   <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save changes</button>
                   </div>
                 </div>
               </div>

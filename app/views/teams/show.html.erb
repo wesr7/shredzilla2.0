@@ -1,11 +1,19 @@
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-
-<h1>Teams#show</h1>
-<p>Find me in app/views/teams/show.html.erb</p>
+<div class="container">
+    <h1 class="text-center"> <%= @team.name %> </h1>
+    <table style="width: 100%; border: 1px solid black; margin: 60px 0;">
+    <tr>
+        <th>Name</th>
+        <th>Total Score</th>
+    </tr>
+    <% @users.each do |u| %>
+    <tr>
+        <td class="text-center"><%= "#{u.first_name} #{u.last_name}" =%></td>
+        <% u.scores.each do |s|%>
+        <% @totalscore << s.total %>
+        <% end %>
+        <% @totalscore.compact! %>
+        <td class="text-center"><%= @totalscore.inject(:+) =%></td>
+    </tr>
+    <% end %>
+    </table>
+</div>

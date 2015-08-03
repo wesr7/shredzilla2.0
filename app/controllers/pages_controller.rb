@@ -17,6 +17,7 @@ class PagesController < ApplicationController
   def dashboard
     # skip_authorization
     @teams = Team.all
+    @team = Membership.where(user_id: current_user.id)
     # displays the name of current day
     @today = Date.today.strftime("%A")
     if current_user.teams != []
