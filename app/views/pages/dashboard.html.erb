@@ -38,7 +38,7 @@
       <p>Speed 2: <%=@day.option_2%></p>
 
   <!-- if there is a workout of the day and the current users last scorecard day key is not equal to the current day-->
-    <% elsif @wod != [] && current_user.scores.last.day != @day.day %>
+    <% elsif @wod != []  %>
     <center><h1>Your Workout for <%= @today %>!</h1></center>
     <table style="width: 100%; border: 1px solid black; margin: 60px 0;">
       <tr>

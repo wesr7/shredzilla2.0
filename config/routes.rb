@@ -12,7 +12,6 @@ Rails.application.routes.draw do
   get '/auth/:provider/callback', to: 'sessions#create'
 
   resources :exercises, :challenges, :programs, :teams, :posts, :days, :workouts
-
   resources :users do
     resources :scores
   end
