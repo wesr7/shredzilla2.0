@@ -5,13 +5,14 @@
         <th>Name</th>
         <th>Total Score</th>
     </tr>
-    <% @users.each do |u| %>
+
     <tr>
+    <% @users.each do |u| %>
         <td class="text-center"><%= "#{u.first_name} #{u.last_name}" =%></td>
-        <% if u.scores.last.challengetotal == nil %>
+        <% if u.scores.last.total == nil %>
         <td>No Score Yet</td>
         <% else %>
-        <td class="text-center"><%= u.scores.last.challengetotal =%></td>
+        <td class="text-center"><%= u.scores.last.total =%></td>
         <% end %>
     <% end %>
 
