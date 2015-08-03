@@ -9,10 +9,10 @@
     <tr>
     <% @users.each do |u| %>
         <td class="text-center"><%= "#{u.first_name} #{u.last_name}" =%></td>
-        <% if u.scores.last.total == nil %>
+        <% if u.scores.last == nil %>
         <td>No Score Yet</td>
         <% else %>
-        <td class="text-center"><%= u.scores.last.total =%></td>
+        <td class="text-center"><%= u.scores.last.challengetotal =%></td>
         <% end %>
     <% end %>
 
