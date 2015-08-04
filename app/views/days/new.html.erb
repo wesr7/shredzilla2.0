@@ -1,0 +1,15 @@
+<div class="container">
+<%= form_for @day do |d| %>
+    <p><strong><%= d.label :program_id %> </strong></p>
+    <p><%= d.text_field :program_id %></p>
+    <p><strong><%= d.label :day %></strong></p>
+    <p><%= d.text_field :day %></p>
+    <p><strong><%= d.label :description %></strong></p>
+    <p><%= d.text_field :description %></p>
+    <p><strong><%= d.label :option_1 %></strong></p>
+    <p><%= d.text_field :option_1 %></p>
+    <p><strong><%= d.label :option_2 %></strong></p>
+    <p><%= d.text_field :option_2 %></p>
+    <%= d.submit 'Add Day' %>
+<% end %>
+</div>
