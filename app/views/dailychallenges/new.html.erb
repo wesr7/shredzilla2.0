@@ -1,0 +1,10 @@
+
+  <div class="container">
+    <%= form_for @dailychallenge do |d| =%>
+    <strong><p><%= d.label :day_id =%></p></strong>
+    <p><%= d.text_field :day_id =%></p>
+    <strong><p><%= d.label :description %></p></strong>
+    <p><%= d.text_area :description, placeholder: "Today's challenge is..."=%></p>
+    <p><%= d.submit 'Add Challenge'=%></p>
+    <% end %>
+</div>

@@ -30,3 +30,5 @@ class ExercisesController < ApplicationController
 end
 
 
+
+

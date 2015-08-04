@@ -1,5 +1,11 @@
 Rails.application.routes.draw do
 
+  get 'dailychallenges/index'
+
+  get 'dailychallenges/new'
+
+  get 'dailychallenges/show'
+
   root to: 'pages#index'
 
   get '/dashboard' => 'pages#dashboard'
@@ -11,7 +17,7 @@ Rails.application.routes.draw do
   # Omniauth Callbacks
   get '/auth/:provider/callback', to: 'sessions#create'
 
-  resources :exercises, :challenges, :programs, :teams, :posts, :days, :workouts
+  resources :exercises, :challenges, :programs, :teams, :posts, :days, :workouts, :dailychallenges
   resources :users do
     resources :scores
   end
