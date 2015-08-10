@@ -48,7 +48,7 @@
         <th>Sets</th>
         <th>Timer</th>
       </tr>
-      <% @wod.each do |workout| %>
+      <% @wod.order('id ASC').each do |workout| %>
           <tr>
             <td><a data-toggle="modal" data-target="#videoModal" data-theVideo=<%="#{workout.exercise.video}"%> ><%=workout.exercise.name%></a></td>
             <td><%= workout.hold %> </td>
