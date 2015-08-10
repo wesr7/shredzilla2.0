@@ -14,14 +14,37 @@
   </div>
 
   <%= submit_tag "Log In", class: "btn btn-success" %>
-
+  <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#myModal">
+  Forgot your password?
+</button>
 <% end %>
 
 </div>
 
 <center>
- <%= link_to "Log In with Facebook", '/auth/facebook', class: 'btn btn-primary' %> 
- <%= link_to "Log In with Google+", '/auth/google', class: 'btn btn-danger' %> 
+ <%= link_to "Log In with Facebook", '/auth/facebook', class: 'btn btn-primary' %>
+ <%= link_to "Log In with Google+", '/auth/google', class: 'btn btn-danger' %>
  <%= link_to "Log In with Twitter", '/auth/twitter', class: 'btn btn-primary' %>
 </center>
 <br><br>
+
+<div class="modal fade" id="myModal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">Forgot your password?</h4>
+      </div>
+      <div class="modal-body">
+        <%= form_tag('/search', method: 'get') do %>
+            <%= label_tag(:q, "Enter your email") %>
+            <%= text_field_tag(:q) %>
+            <%= submit_tag("Search") %>
+        <% end %>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->

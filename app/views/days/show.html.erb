@@ -18,7 +18,7 @@
 
 
 <tr>
-<% @day.workouts.each do |d| %>
+<% @day.workouts.order('id ASC').each do |d| %>
     <td><%= link_to d.exercise.name, "#{d.exercise.video}" %></td>
     <td><%= d.hold %> </td>
     <td><%= d.reps %></td>

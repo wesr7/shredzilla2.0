@@ -25,10 +25,22 @@ class UsersController < ApplicationController
 
   def edit
     @user = User.find(params[:id])
+    if @user.update(user_params)
+      redirect_to dashboard_path
+    else
+      render new
+    end
   end
 
   def update
-
+    @email = :q
+    @user = User.where(email: :q)
+    @user = User.find(params[:id])
+    if @user.update_attributes(user_params)
+      redirect_to dashboard_path
+    else
+      render new
+    end
   end
 
   private
