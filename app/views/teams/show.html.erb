@@ -12,8 +12,8 @@
         <% if u.scores.where(day: Challenge.first.current_day - 1) == nil %>
         <td class="text-center">No Score For Yesterday</td>
         <% else %>
-        <td class="text-center"><%= u.scores.where(day: Challenge.first.current_day - 1).challengetotal =%></td>
-        <td> <%= u.scores.where(day: Challenge.first.current_day - 1).note =%> </td>
+        <td class="text-center"><%= u.scores.where(day: Challenge.first.current_day - 1).first.challengetotal =%></td>
+        <td> <%= u.scores.where(day: Challenge.first.current_day - 1).first.note =%> </td>
         <% end %>
     <% end %>
     </tr>
