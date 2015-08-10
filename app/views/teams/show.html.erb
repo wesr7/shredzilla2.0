@@ -6,7 +6,7 @@
         <th>Total Score</th>
         <th>Most Recent Note</th>
     </tr>
-    <% @users.order('challengetotal DESC').each do |u| %>
+    <% @users.each do |u| %>
     <tr>
         <td class="text-center"><%= "#{u.first_name} #{u.last_name}" =%></td>
         <% if u.scores.last == nil %>
