@@ -9,11 +9,11 @@
     <% @users.each do |u| %>
     <tr>
         <td class="text-center"><%= "#{u.first_name} #{u.last_name}" =%></td>
-        <% if u.scores.where(day: Challenge.first.current_day - 1) == nil %>
+        <% if u.scores.last == nil %>
         <td class="text-center">No Score For Yesterday</td>
         <% else %>
-        <td class="text-center"><%= u.scores.where(day: Challenge.first.current_day - 1).first.challengetotal =%></td>
-        <td> <%= u.scores.where(day: Challenge.first.current_day - 1).first.note =%> </td>
+        <td class="text-center"><%= u.scores.last.challengetotal =%></td>
+        <td> <%= u.scores.last.note =%> </td>
         <% end %>
     <% end %>
     </tr>
