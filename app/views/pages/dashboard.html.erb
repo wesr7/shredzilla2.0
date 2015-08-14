@@ -60,6 +60,7 @@
     </table>
       <!-- if there is a description -->
       <% elsif @day.description != nil %>
+      <center><h1><%= @today %>'s Workout</h1>
       <center><p>Cardio Day: <%=@day.description%></p></center>
       <% else %>
       <center><h1>Great Job Today!</h1></center>
