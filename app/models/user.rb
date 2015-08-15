@@ -24,7 +24,7 @@ class User < ActiveRecord::Base
   has_many :identities, dependent: :destroy
   has_many :memberships, dependent: :destroy
   has_many :teams, through: :memberships, dependent: :destroy
-  has_many :scores
+  has_many :scores, dependent: :destroy
   has_many :posts
   has_many :roles, dependent: :destroy
 
