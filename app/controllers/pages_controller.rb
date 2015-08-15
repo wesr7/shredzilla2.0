@@ -29,7 +29,7 @@ class PagesController < ApplicationController
       @score = Score.new
       @score.day = @day.id
         if current_user.scores != []
-          @dailyscore = current_user.scores.last
+          @dailyscore = current_user.scores.where(day: Challenge.first.current_day).first
           @dailyscore.total = @dailyscore.food + @dailyscore.workout + @dailyscore.sleep + @dailyscore.challenge + @dailyscore.daily_update
           @dailyscore.save!
           @userscores = current_user.scores
