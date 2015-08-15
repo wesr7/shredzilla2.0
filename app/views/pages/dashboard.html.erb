@@ -142,6 +142,7 @@
     <% end %>
   <% end %>
   <p class="text-center"><%= link_to 'Check out how your teammates are doing??', "teams/#{@team.first.team_id}" %></p>
+  <p class="text-center"><a data-toggle='modal' data-target="#addScoreModal">Forgot submit a scorecard?</a> </p>
   <% end %>
 </div>
             </div>
@@ -170,7 +171,7 @@
                 <div class="modal-content">
                   <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                    <h4 class="modal-title" id="myModalLabel"><%= current_user.first_name %> Scores</h4>
+                    <h4 class="modal-title" id="myModalLabel">Daily Score Breakdown</h4>
                   </div>
                   <div class="modal-body">
                     <table>
@@ -204,4 +205,52 @@
             </div>
 
             <% end %>
+            <div class="modal fade" id="addScoreModal" tabindex="-1" role="dialog" aria-labelledby="addScoreModalLabel" aria-hidden="true">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title text-center" id="addScoreModalLabel">Forgot To Submit Your Score?</h4>
+                  </div>
+                  <div class="modal-body">
+                    <%= simple_form_for [current_user, @score] do |s| %>
+                    <%= s.hidden_field :user_id, :value => [current_user.id] %>
+                  <div class="table-responsive">
+                    <table class="table">
+                      <tr>
+                        <th><%= s.label :day %></th>
+                        <th><%= s.label :food %></th>
+                      </tr>
+                      <tr>
+                        <td class="text-center"><%= s.collection_select(:day, Day.where(program_id: 2),:day, :day) %></td>
+                        <td class="text-center"><%= s.collection_select :food, [[4, "Perfection"], [3, "Near Perfection"], [2, "Almost Near Perfection"], [1, "The struggle is real"], [0, "You know, it happens"], [-1, "Houston, we have a problem"], [-2, "Mayday! Mayday!"], [-3, "Super Cheat Day"], [-4, "Treat Yo Self!"]], :first, :last %></td>
+                      </tr>
+                      <tr>
+                        <th><%= s.label :workout %></th>
+                        <th><%= s.label :sleep %></th>
+                      </tr>
+                      <tr>
+                        <td class="text-center"><%= s.collection_select :workout, [[3, "Workout Domination"], [0, "Missed Workout"]], :first, :last%></td>
+                        <td class="text-center"><%= s.collection_select :sleep, [[1, 'Slept like a baby...'], [0, "More ZZZZZ's to come."]], :first, :last %></td>
+                      </tr>
+                      <tr>
+                        <th><%= s.label :daily_update %></th>
+                        <th><%= s.label :challenge %></th>
+                      </tr>
+                      <tr>
+                        <td class="text-center"><%= s.collection_select :daily_update, [[1, 'You know it!'], [0, 'I owe it!']], :first, :last %></td>
+                        <td class="text-center"><%= s.collection_select :challenge, [[1, 'Challenge, Smallenge'], [0, 'Womp, womp']], :first, :last%></td>
+                      </tr>
+                    </table>
+                    <div class="form-group"><br>
+                    <%= s.input :note, :as => :text, input_html: { :rows => 4, :class => 'form-control'} %>
+              <br>
+                    <%= s.submit 'Submit', class: 'btn btn-primary' %>
+                          </div><br><br>
+                          <%end%>
+                      </div>
+                  </div>
+                </div>
+              </div>
+            </div>
 
