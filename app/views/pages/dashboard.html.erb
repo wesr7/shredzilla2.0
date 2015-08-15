@@ -142,7 +142,7 @@
     <% end %>
   <% end %>
   <p class="text-center"><%= link_to 'Check out how your teammates are doing??', "teams/#{@team.first.team_id}" %></p>
-  <p class="text-center"><a data-toggle='modal' data-target="#addScoreModal">Forgot submit a scorecard?</a> </p>
+  <p class="text-center"><a data-toggle='modal' data-target="#addScoreModal">Forgot to submit a scorecard?</a> </p>
   <% end %>
 </div>
             </div>
@@ -222,7 +222,7 @@
                         <th><%= s.label :food %></th>
                       </tr>
                       <tr>
-                        <td class="text-center"><%= s.collection_select(:day, Day.where(program_id: 2),:day, :day) %></td>
+                        <td class="text-center"><%= s.collection_select(:day, Day.where(program_id: 2).order('day').all :day, :day) %></td>
                         <td class="text-center"><%= s.collection_select :food, [[4, "Perfection"], [3, "Near Perfection"], [2, "Almost Near Perfection"], [1, "The struggle is real"], [0, "You know, it happens"], [-1, "Houston, we have a problem"], [-2, "Mayday! Mayday!"], [-3, "Super Cheat Day"], [-4, "Treat Yo Self!"]], :first, :last %></td>
                       </tr>
                       <tr>
