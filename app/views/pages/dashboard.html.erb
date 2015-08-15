@@ -121,7 +121,7 @@
 
     <!-- else show score total for the day -->
     <center>
-    <h3>Today's Total: <%= @dailyscore.total %></h3>
+    <h3>Today's Total: <%= @userscores.where(day: Challenge.first.current_day).first.total %></h3>
 
     <!-- This calculates the total score for each day of challenge -->
      <h3> Challenge Total:
@@ -184,7 +184,7 @@
                         <td>Daily Challenge</td>
                         <td>Daily Total</td>
                       </tr>
-                      <% @userscores.each do |score| %>
+                      <% @userscores.order('day').each do |score| %>
                       <tr>
                         <td><%= score.day %></td>
                         <td><%= score.food %></td>
