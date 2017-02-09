@@ -92,8 +92,7 @@ to make small daily changes.
         <div class="footer_section" style="padding-top: 20px;">
           <p class="section_title" style="font-size: 14px; color: #808080;">RECENT BLOG POSTS</p>
           <% @posts.each do |post| %>
-            <%= link_to post.title, post_path(post) %><br />
-            <%= time_ago_in_words(post.created_at) %> ago.
+            <%= link_to post.title, post_path(post) %>
             <hr style="color: #808080;">
           <% end %>
         </div>
